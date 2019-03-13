@@ -8,7 +8,7 @@ using UnityEngine;
 public class AudioPeer : MonoBehaviour
 {
     public AudioSource _audiosource;
-   public static float[] _samples=new float[512];
+    public static float[] _samples=new float[512];
     float[] _freBand =new float[8];
     float[] _bandbuffer = new float[8];
     float[] _bufferDecrease = new float[8];
@@ -23,11 +23,11 @@ public class AudioPeer : MonoBehaviour
     public bool _useMic;
     public AudioClip _DefultClip;
     public string _selectedDevice;
-
+    public float _AudioProfile;
     void Start()
     {
-       
         _audiosource = GetComponent<AudioSource>();
+
         if (_useMic)
         {
             if (Microphone.devices.Length > 0)
@@ -44,7 +44,7 @@ public class AudioPeer : MonoBehaviour
         {
             _audiosource.clip = _DefultClip;
         }
-        
+        AudioInit(_AudioProfile);
         _audiosource.Play();
 
     }
@@ -81,6 +81,8 @@ public class AudioPeer : MonoBehaviour
         _audiosource.Play();
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
@@ -91,6 +93,13 @@ public class AudioPeer : MonoBehaviour
         GetAmplitude();
     }
 
+    void AudioInit(float _aduP)
+    {
+        for (int i = 0; i < _freqbandHighest.Length;i++)
+        {
+            _freqbandHighest[i] = _aduP;
+        }
+    }
 
     void GetAmplitude()
     {
@@ -117,6 +126,7 @@ public class AudioPeer : MonoBehaviour
     void getAudioSpectrum()
     {
         _audiosource.GetSpectrumData(_samples,0,FFTWindow.Blackman);
+       
     }
 
     void CreateAudioBands()
