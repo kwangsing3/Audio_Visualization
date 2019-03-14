@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Main Camera Profile 1
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 114396784519489252}
   - {fileID: 114195148520692646}
+  - {fileID: 114380649808722662}
 --- !u!114 &114195148520692646
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -33,7 +33,7 @@ MonoBehaviour:
     value: 1
   preset:
     overrideState: 1
-    value: 2
+    value: 3
   maximumIterationCount:
     overrideState: 0
     value: 16
@@ -48,11 +48,11 @@ MonoBehaviour:
     value: 100
   distanceFade:
     overrideState: 1
-    value: 0.5
+    value: 1
   vignette:
     overrideState: 1
-    value: 0.5
---- !u!114 &114396784519489252
+    value: 1
+--- !u!114 &114380649808722662
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,27 +70,27 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0
+    value: 0.52
   threshold:
     overrideState: 1
-    value: 1
+    value: 0.66
   softKnee:
-    overrideState: 1
+    overrideState: 0
     value: 0.5
   clamp:
-    overrideState: 1
+    overrideState: 0
     value: 65472
   diffusion:
-    overrideState: 1
+    overrideState: 0
     value: 7
   anamorphicRatio:
-    overrideState: 1
+    overrideState: 0
     value: 0
   color:
-    overrideState: 1
+    overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
   fastMode:
-    overrideState: 1
+    overrideState: 0
     value: 0
   dirtTexture:
     overrideState: 0

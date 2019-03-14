@@ -6,13 +6,17 @@ using UnityEditor;
 
 
 
-
+public enum _Theme
+{
+    Theme_1, Theme_2, Theme_3
+}
 
 
 
 [CustomEditor(typeof(_GlobalSetting))]
 public class ObjectBuilderEditor : Editor
 {
+
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
@@ -23,6 +27,18 @@ public class ObjectBuilderEditor : Editor
         {
             _script.RecreateCubes();
         }
+
+
+
+
+        _Theme newValue = (_Theme)EditorGUILayout.EnumPopup(_script._CurrentTheme);
+        if (_script._CurrentTheme != (_GlobalSetting._Theme)newValue)
+        {
+            _script._CurrentTheme= (_GlobalSetting._Theme)newValue;
+            _script.SwitchTheme();
+            // do stuff, call functions, etc.
+        }
+
 
     }
 }
