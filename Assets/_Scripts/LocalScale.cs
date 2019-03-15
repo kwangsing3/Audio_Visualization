@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class LocalScale : MonoBehaviour
 {
 
@@ -11,6 +12,7 @@ public class LocalScale : MonoBehaviour
     public bool Buffer;
     public Color _currentColor;
     public float _BaseLightScale ;
+    public float EmissionStrength;
     
     Material _material;
     // Start is called before the first frame update
@@ -30,12 +32,12 @@ public class LocalScale : MonoBehaviour
         if (Buffer && AudioPeer._audiobandBuffer[_band] > 0)
             transform.localScale = new Vector3(transform.localScale.x, (AudioPeer._audiobandBuffer[_band] * _scaleMultiplier) + _startScale, transform.localScale.z);
  
-        Color _color=new Color(
+        Color _Finalcolor = new Color(
             AudioPeer._audiobandBuffer[_band]* _currentColor.r* PickColor._lightscale* _BaseLightScale, 
             AudioPeer._audiobandBuffer[_band]* _currentColor.g* PickColor._lightscale* _BaseLightScale, 
             AudioPeer._audiobandBuffer[_band]* _currentColor.b* PickColor._lightscale* _BaseLightScale);
 
-        _material.SetColor("_EmissionColor", _color);
+        _material.SetVector("_EmissionColor", _Finalcolor * EmissionStrength);
     }
 
 
