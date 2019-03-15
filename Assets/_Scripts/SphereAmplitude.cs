@@ -11,8 +11,10 @@ public class SphereAmplitude : MonoBehaviour
     public bool Buffer;
 
     public float[] CurrentAmplitude;
+    public float _EmissionStrength = 5;
     public Color _color;
     Material _material;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +41,7 @@ public class SphereAmplitude : MonoBehaviour
             CurrentAmplitude[i] = AudioPeer._audiobandBuffer[i];
         }
         if(_material!=null)
-            _material.SetVector("_EmissionColor", _Finalcolor * 5f);
+            _material.SetVector("_EmissionColor", _Finalcolor * _EmissionStrength);
     }
 
 

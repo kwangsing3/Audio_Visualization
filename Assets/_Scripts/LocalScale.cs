@@ -33,9 +33,13 @@ public class LocalScale : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x, (AudioPeer._audiobandBuffer[_band] * _scaleMultiplier) + _startScale, transform.localScale.z);
  
         Color _Finalcolor = new Color(
+            /*
             AudioPeer._audiobandBuffer[_band]* _currentColor.r* PickColor._lightscale* _BaseLightScale, 
             AudioPeer._audiobandBuffer[_band]* _currentColor.g* PickColor._lightscale* _BaseLightScale, 
-            AudioPeer._audiobandBuffer[_band]* _currentColor.b* PickColor._lightscale* _BaseLightScale);
+            AudioPeer._audiobandBuffer[_band]* _currentColor.b* PickColor._lightscale* _BaseLightScale);*/
+            AudioPeer._audiobandBuffer[_band] * _currentColor.r * _BaseLightScale,
+            AudioPeer._audiobandBuffer[_band] * _currentColor.g * _BaseLightScale,
+            AudioPeer._audiobandBuffer[_band] * _currentColor.b * _BaseLightScale);
 
         _material.SetVector("_EmissionColor", _Finalcolor * EmissionStrength);
     }
