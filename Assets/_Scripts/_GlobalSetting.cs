@@ -11,6 +11,17 @@ public class _GlobalSetting : MonoBehaviour
 
     public float ForwardScale = 70;
     public GameObject Cubes512;
+
+    public Color _AddThemeColor=Color.blue;
+    public Color _AddThemeColor2 = Color.blue;
+
+
+    public float EmissionStrength =15;
+    public float _BaseLightScale;
+
+
+
+
     Camera _camera;
     //public FFTWindow _FFTWindowMode;
     public enum _Theme
@@ -20,7 +31,7 @@ public class _GlobalSetting : MonoBehaviour
     [HideInInspector]
     public _Theme _CurrentTheme;
     public  FFTWindow _FFTWindowMode;
-
+    public Color _MainBackColor = Color.white;
 
 
     private void Awake()

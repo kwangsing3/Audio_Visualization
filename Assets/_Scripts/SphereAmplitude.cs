@@ -14,7 +14,8 @@ public class SphereAmplitude : MonoBehaviour
     public float _EmissionStrength = 5;
     public Color _color;
     Material _material;
-   
+    public float _BandBuffer;
+    public bool _Scale = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,16 +33,20 @@ public class SphereAmplitude : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     if(Buffer&&AudioPeer._AmplitudeBuffer>0)
+        _BandBuffer = AudioPeer._audiobandBuffer[_band];
+     if (Buffer&&AudioPeer._AmplitudeBuffer>0&& _Scale)
         transform.localScale = new Vector3((AudioPeer._AmplitudeBuffer * _scaleMultiplier) + _startScale, (AudioPeer._AmplitudeBuffer * _scaleMultiplier) + _startScale, (AudioPeer._AmplitudeBuffer * _scaleMultiplier) + _startScale);
         
-       Color _Finalcolor=new Color(AudioPeer._audiobandBuffer[_band]*_color.r, AudioPeer._audiobandBuffer[_band] * _color.g, AudioPeer._audiobandBuffer[_band] * _color.b);
+       Color _Finalcolor=new Color(
+           AudioPeer._audiobandBuffer[_band]*_EmissionStrength, 
+           AudioPeer._audiobandBuffer[_band]* _EmissionStrength, 
+           AudioPeer._audiobandBuffer[_band]* _EmissionStrength);
         for(int i=0;i<CurrentAmplitude.Length;i++)
         {
             CurrentAmplitude[i] = AudioPeer._audiobandBuffer[i];
         }
         if(_material!=null)
-            _material.SetVector("_EmissionColor", _Finalcolor * _EmissionStrength);
+            _material.SetVector("_EmissionColor", _color + _Finalcolor );
     }
 
 

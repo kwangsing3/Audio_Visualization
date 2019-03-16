@@ -139,7 +139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35689036}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.00000035603, y: 0.00000071205, z: 7.4613}
+  m_LocalPosition: {x: 0.00000035603, y: -0, z: 35}
   m_LocalScale: {x: 12.5336, y: 12.5336, z: 12.5336}
   m_Children: []
   m_Father: {fileID: 0}
@@ -157,13 +157,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac195dcac021994bac43e085f2ebd9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _band: 1
-  _startScale: -2
-  _scaleMultiplier: 15
+  _band: 7
+  _startScale: -131.6
+  _scaleMultiplier: 147.4
   Buffer: 1
-  CurrentAmplitude: []
-  _EmissionStrength: 400
-  _color: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 0}
+  CurrentAmplitude:
+  - 0.00042263683
+  - 0.00034136328
+  - 0.010681237
+  - 0.0029294756
+  - 0.0012330671
+  - 0.0014873112
+  - 0.0012587579
+  - 0.0010832681
+  - 0.00069295615
+  - 0.00033122863
+  _EmissionStrength: 150
+  _color: {r: 1, g: 0.46728808, b: 0, a: 0}
+  _BandBuffer: 0.0010832681
+  _Scale: 1
 --- !u!33 &35689039
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -258,7 +270,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.276
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -403,12 +415,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 5
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &57641067
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -520,12 +530,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 3
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &88099692
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -618,7 +626,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -706,12 +714,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 1
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &210756287
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -823,12 +829,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 8
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &260595408
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -955,8 +959,13 @@ MonoBehaviour:
   ForwardScale: 18
   Cubes512: {fileID: 1697931159162208598, guid: 98f1838d5389a43f08806de3d52ba0f6,
     type: 3}
+  _AddThemeColor: {r: 1, g: 0, b: 0.9094448, a: 1}
+  _AddThemeColor2: {r: 1, g: 0.7028302, b: 0.9683172, a: 1}
+  EmissionStrength: 9
+  _BaseLightScale: 70
   _CurrentTheme: 0
   _FFTWindowMode: 2
+  _MainBackColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &534238652
 Transform:
   m_ObjectHideFlags: 0
@@ -1179,12 +1188,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 9
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &552959253
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1296,12 +1303,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 8
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &594699756
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1413,12 +1418,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 0
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &628633557
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1514,13 +1517,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac195dcac021994bac43e085f2ebd9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _band: 1
-  _startScale: -6
-  _scaleMultiplier: 15
+  _band: 7
+  _startScale: -134
+  _scaleMultiplier: 147
   Buffer: 1
   CurrentAmplitude: []
-  _EmissionStrength: 400
-  _color: {r: 0.9056604, g: 0.06407974, b: 0.095122464, a: 0}
+  _EmissionStrength: 0
+  _color: {r: 0.30588236, g: 0.30588236, b: 0.30588236, a: 0}
+  _BandBuffer: 0
+  _Scale: 1
 --- !u!33 &643282022
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1612,12 +1617,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 1
-  _startScale: 0.3
+  _startScale: -10
   _scaleMultiplier: 15
   Buffer: 1
   CurrentAmplitude: []
-  _EmissionStrength: 400
-  _color: {r: 0.9056604, g: 0.06407974, b: 0.095122464, a: 0}
+  _EmissionStrength: 0
+  _color: {r: 0.30588236, g: 0.30588236, b: 0.30588236, a: 0}
+  _BandBuffer: 0
+  _Scale: 1
 --- !u!33 &688351043
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1764,12 +1771,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 0
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &878144442
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1881,12 +1886,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 6
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &964664043
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1998,12 +2001,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 6
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &1070998922
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2100,12 +2101,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 1
-  _startScale: 0.3
+  _startScale: -10
   _scaleMultiplier: 15
   Buffer: 1
   CurrentAmplitude: []
-  _EmissionStrength: 400
-  _color: {r: 0.9056604, g: 0.06407974, b: 0.095122464, a: 0}
+  _EmissionStrength: 0
+  _color: {r: 0.30588236, g: 0.30588236, b: 0.30588236, a: 0}
+  _BandBuffer: 0
+  _Scale: 1
 --- !u!33 &1075387787
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2212,12 +2215,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 1
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &1088180741
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2329,12 +2330,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 9
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &1249299389
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2446,12 +2445,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 2
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &1282356100
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2548,12 +2545,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 1
-  _startScale: 4
-  _scaleMultiplier: 15
+  _startScale: -110
+  _scaleMultiplier: 120
   Buffer: 1
   CurrentAmplitude: []
-  _EmissionStrength: 400
-  _color: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 0}
+  _EmissionStrength: 150
+  _color: {r: 1, g: 0.46728808, b: 0, a: 0}
+  _BandBuffer: 0
+  _Scale: 1
 --- !u!33 &1314118685
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2607,7 +2606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314118683}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 14.7, y: 0.0000011678, z: 7.1165}
+  m_LocalPosition: {x: 14.7, y: 0.00000045574996, z: 34.6552}
   m_LocalScale: {x: 7.7542877, y: 7.7542877, z: 7.7542877}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2645,12 +2644,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 1
-  _startScale: 4
-  _scaleMultiplier: 15
+  _startScale: -110
+  _scaleMultiplier: 120
   Buffer: 1
   CurrentAmplitude: []
-  _EmissionStrength: 400
-  _color: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 0}
+  _EmissionStrength: 150
+  _color: {r: 1, g: 0.46728808, b: 0, a: 0}
+  _BandBuffer: 0
+  _Scale: 1
 --- !u!33 &1384929661
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2704,7 +2705,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384929659}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -14.8, y: 0.0000011678, z: 7.1165}
+  m_LocalPosition: {x: -14.8, y: 0.00000045574996, z: 34.6552}
   m_LocalScale: {x: 7.7542877, y: 7.7542877, z: 7.7542877}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2757,12 +2758,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 3
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &1407617100
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2914,12 +2913,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 7
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &1601064751
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3031,12 +3028,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 7
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &1748854411
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3180,12 +3175,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 2
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &1870858839
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3297,12 +3290,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 4
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &1913298584
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3414,12 +3405,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 4
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &1960008024
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3531,12 +3520,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _band: 5
-  _startScale: 50
-  _scaleMultiplier: 2500
+  _startScale: 45
+  _scaleMultiplier: 7000
   Buffer: 1
   _currentColor: {r: 0.8679245, g: 0.8473904, b: 0.05322181, a: 0}
-  _BaseLightScale: 50
-  EmissionStrength: 18.7
 --- !u!23 &2092697103
 MeshRenderer:
   m_ObjectHideFlags: 0
