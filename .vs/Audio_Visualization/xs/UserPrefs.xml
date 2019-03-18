@@ -1,10 +1,9 @@
 ﻿<Properties StartupConfiguration="{CEB3F511-CA4D-062B-5A5E-B1947A60B097}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/LocalScale.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/_SimpleSpectrumEditor.cs">
     <Files>
-      <File FileName="Assets/Editor/_GlobalEditor.cs" Line="28" Column="29" />
-      <File FileName="Assets/_Scripts/_GlobalSetting.cs" Line="41" Column="1" />
-      <File FileName="Assets/_Scripts/Sc_InstantiateCube.cs" Line="53" Column="93" />
-      <File FileName="Assets/_Scripts/LocalScale.cs" Line="41" Column="67" />
+      <File FileName="Assets/SimpleSpectrum/Scripts/SimpleSpectrum.cs" Line="273" Column="41" />
+      <File FileName="Assets/SimpleSpectrum/Scripts/Editor/SimpleSpectrumEditor.cs" Line="65" Column="5" />
+      <File FileName="Assets/_Scripts/_SimpleSpectrumEditor.cs" Line="30" Column="31" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,12 +11,15 @@
           <Node name="Audio_Visualization" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="_Scripts" expanded="True">
-                <Node name="LocalScale.cs" selected="True" />
+                <Node name="_SimpleSpectrumEditor.cs" selected="True" />
               </Node>
               <Node name="Editor" expanded="True" />
               <Node name="SimpleSpectrum" expanded="True">
                 <Node name="Demos" expanded="True">
                   <Node name="Demo Assets" expanded="True" />
+                </Node>
+                <Node name="Scripts" expanded="True">
+                  <Node name="Editor" expanded="True" />
                 </Node>
               </Node>
             </Node>
@@ -34,9 +36,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/kwangsing/Documents/Audio_Visualization/Assets/_Scripts/AudioPeer.cs" relfile="Assets/_Scripts/AudioPeer.cs" line="171" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

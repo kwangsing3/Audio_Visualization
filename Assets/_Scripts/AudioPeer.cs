@@ -23,13 +23,14 @@ public class AudioPeer : MonoBehaviour
     public static float[] _audiobandBuffer;
     public static float _Amplitude=1, _AmplitudeBuffer=1;
     float _AmplitudeHighest=1;
-
+   
     // Mic input
     public bool _useMic;
     public AudioClip _DefultClip;
     public string _selectedDevice;
     public float _AudioProfile;
     private _GlobalSetting _myGlo;
+   
 
     private void Awake()
     {
@@ -55,6 +56,7 @@ public class AudioPeer : MonoBehaviour
         _bufferDecrease = new float[_freBand.Length];
         _audioband = new float[_SimpleSamples];
         _audiobandBuffer = new float[_SimpleSamples];
+
         int i = 0;
         while(i<_samples.Length)
         {
@@ -81,6 +83,7 @@ public class AudioPeer : MonoBehaviour
         {
             _audiosource.clip = _DefultClip;
         }
+
         AudioInit(_AudioProfile);
         _audiosource.Play();
 
@@ -96,8 +99,6 @@ public class AudioPeer : MonoBehaviour
                 _selectedDevice = Microphone.devices[0].ToString();
                 Destroy(_audiosource);
 
-                
-                
                  _audiosource = gameObject.AddComponent<AudioSource>();
                 _audiosource.volume = 0.3f;
                 _audiosource.loop = false;
@@ -175,7 +176,9 @@ public class AudioPeer : MonoBehaviour
                 _freqbandHighest[i] = _freBand[i];
 
             _audioband[i] = (_freBand[i]/_freqbandHighest[i]);
+            if((_frebandbuffer[i] / _freqbandHighest[i])> _myGlo._Bandlimit)
             _audiobandBuffer[i] = (_frebandbuffer[i] / _freqbandHighest[i]);
+           
         }
     }
     void Bandbuffer()

@@ -18,9 +18,10 @@ public class _GlobalSetting : MonoBehaviour
 
     public float EmissionStrength =15;
     public float _BaseLightScale;
-
-
-
+    public float _Bandlimit;
+    public float _startScale=45,_scaleMultiplier = 4500;
+    public float _limit =20;
+    public float _LerpSpeed=0.4f;
 
     Camera _camera;
     //public FFTWindow _FFTWindowMode;
