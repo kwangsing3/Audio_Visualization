@@ -491,7 +491,9 @@ public class SimpleSpectrum : MonoBehaviour {
                 int sampleIndexFloor = Mathf.FloorToInt(trueSampleIndex);
                 sampleIndexFloor = Mathf.Clamp(sampleIndexFloor, 0, spectrum.Length - 2); //just keeping it within the spectrum array's range
 
-                value = Mathf.SmoothStep(spectrum[sampleIndexFloor], spectrum[sampleIndexFloor + 1], trueSampleIndex - sampleIndexFloor); //smoothly interpolate between the two samples using the true index's decimal.
+                 //smoothly interpolate between the two samples using the true index's decimal.
+                value = Mathf.SmoothStep(spectrum[sampleIndexFloor], spectrum[sampleIndexFloor + 1], trueSampleIndex - sampleIndexFloor); 
+               
 
                 //MANIPULATE & APPLY SAMPLES
                 if (multiplyByFrequency) //multiplies the amplitude by the true sample index
@@ -511,6 +513,7 @@ public class SimpleSpectrum : MonoBehaviour {
                 //DAMPENING
                 //Vector3 oldScale = bar.localScale;
                 float oldYScale = oldYScales[i], newYScale;
+
                 if (value * barYScale > oldYScale)
                 {
                     newYScale = Mathf.Lerp(oldYScale, Mathf.Max(value * barYScale, barMinYScale), attackDamp);

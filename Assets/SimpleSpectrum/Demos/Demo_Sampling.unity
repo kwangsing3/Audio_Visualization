@@ -339,6 +339,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300001, guid: 1d9bfcb87d0ba844e9071a1e60825ede,
         type: 2}
+    - target: {fileID: 114699901572180746, guid: 4ca1679f59738414ba176b2992042c80,
+        type: 3}
+      propertyPath: useLogarithmicFrequency
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114699901572180746, guid: 4ca1679f59738414ba176b2992042c80,
+        type: 3}
+      propertyPath: multiplyByFrequency
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ca1679f59738414ba176b2992042c80, type: 3}
 --- !u!1 &1008801935
@@ -451,7 +461,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cc3ccdd31fd1cdd41bcd284e738d0725, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b52d8c9a5b009476e9ff12695a99a3dc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -681,8 +691,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnabled: 1
   _sourcetype: 0
-  _audiosource: {fileID: 0}
+  _audiosource: {fileID: 1073279694}
   _numOfSamples: 256
+  _sampleChannel: 0
+  _FFTWindowType: 5
+  _FrequencyLimitLow: 0
+  _FrequencyLimitHigh: 22050
+  multiplyByFrequency: 1
+  barAmount: 150
+  _LerpSpeed: 0.15
+  _barScale_X: 1
+  _barScale_Y: 30
+  _barMinScale_Y: 0.1
+  _barXSpacing: 0.2
+  barPrefab: {fileID: 3392799662929050802, guid: b8ee8044e08494ee69f2e95b433e7954,
+    type: 3}
+  _spectrum: []
 --- !u!4 &1816293692
 Transform:
   m_ObjectHideFlags: 0
@@ -692,7 +716,7 @@ Transform:
   m_GameObject: {fileID: 1816293690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.04799986, y: -0.03, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
