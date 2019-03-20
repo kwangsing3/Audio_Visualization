@@ -296,17 +296,17 @@ PrefabInstance:
     - target: {fileID: 114699901572180746, guid: 4ca1679f59738414ba176b2992042c80,
         type: 3}
       propertyPath: colorMin.r
-      value: 0.16176468
+      value: 0.16078432
       objectReference: {fileID: 0}
     - target: {fileID: 114699901572180746, guid: 4ca1679f59738414ba176b2992042c80,
         type: 3}
       propertyPath: colorMin.g
-      value: 0.16176468
+      value: 0.16078432
       objectReference: {fileID: 0}
     - target: {fileID: 114699901572180746, guid: 4ca1679f59738414ba176b2992042c80,
         type: 3}
       propertyPath: colorMin.b
-      value: 0.16176468
+      value: 0.16078432
       objectReference: {fileID: 0}
     - target: {fileID: 114699901572180746, guid: 4ca1679f59738414ba176b2992042c80,
         type: 3}
@@ -698,6 +698,7 @@ MonoBehaviour:
   _FrequencyLimitLow: 0
   _FrequencyLimitHigh: 22050
   multiplyByFrequency: 1
+  _UseLogarithmicFrequency: 1
   barAmount: 150
   _LerpSpeed: 0.15
   _barScale_X: 1

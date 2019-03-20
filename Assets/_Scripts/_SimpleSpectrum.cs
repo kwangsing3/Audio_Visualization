@@ -24,6 +24,7 @@ public class _SimpleSpectrum : MonoBehaviour
     public float _FrequencyLimitLow = 0;
     public float _FrequencyLimitHigh =22050;
     public bool multiplyByFrequency = false;
+    public bool _UseLogarithmicFrequency =false;
     #endregion
 
 
@@ -42,7 +43,7 @@ public class _SimpleSpectrum : MonoBehaviour
     Transform[] bars;
     Material[] barMaterials;
     float[] _OldScale_Y;
-    float frequencyScaleFactor;
+    float frequencyScaleFactor, highestLogFreq;
     // Start is called before the first frame update
     void Start()
     {
@@ -109,6 +110,7 @@ public class _SimpleSpectrum : MonoBehaviour
         }
 
         frequencyScaleFactor=1.0f/(AudioSettings.outputSampleRate/2)*_numOfSamples;
+        highestLogFreq =Mathf.Log(barAmount+1,2);
 
         isEnabled = true;
     }
@@ -131,7 +133,11 @@ public class _SimpleSpectrum : MonoBehaviour
                 float _value =0;
                 float trueSampleIndex;
 
-
+                if(_UseLogarithmicFrequency)
+                {
+                    trueSampleIndex = Mathf.Lerp(_FrequencyLimitLow,_FrequencyLimitHigh,(highestLogFreq-Mathf.Log(barAmount+1-i,2))/ highestLogFreq)* frequencyScaleFactor;
+                }
+                else
                 // if else
                 trueSampleIndex =Mathf.Lerp(_FrequencyLimitLow,_FrequencyLimitHigh,((float)i)/barAmount) * frequencyScaleFactor;
 
