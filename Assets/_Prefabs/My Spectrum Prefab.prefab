@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1905183045701061066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1905183045701061068}
+  - component: {fileID: 1905183045701061067}
+  m_Layer: 0
+  m_Name: My Spectrum Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1905183045701061068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905183045701061066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.04799986, y: -0.03, z: 0}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1905183045701061067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905183045701061066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef2f3965a5aa441eaef931b3dc4949a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnabled: 1
+  _sourcetype: 0
+  _audiosource: {fileID: 0}
+  _numOfSamples: 256
+  _sampleChannel: 0
+  _FFTWindowType: 5
+  _FrequencyLimitLow: 0
+  _FrequencyLimitHigh: 22050
+  multiplyByFrequency: 1
+  _UseLogarithmicFrequency: 1
+  barAmount: 150
+  _LerpSpeed: 0.15
+  _barScale_X: 1
+  _barScale_Y: 30
+  _barMinScale_Y: 0.1
+  _barXSpacing: 0.2
+  barPrefab: {fileID: 3392799662929050802, guid: b8ee8044e08494ee69f2e95b433e7954,
+    type: 3}
+  _spectrum: []

@@ -525,7 +525,17 @@ public class SimpleSpectrum : MonoBehaviour {
 
                 oldYScales[i] = newYScale;
 
-                //set colour
+
+
+
+
+
+
+
+
+
+
+                //set color
                 if (useColorGradient && materialColourCanBeUsed)
                 {
                     float newColorVal = colorValueCurve.Evaluate(value);

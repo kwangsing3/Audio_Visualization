@@ -40,9 +40,20 @@ public class _SimpleSpectrum : MonoBehaviour
 
     #endregion
 
+    #region COLOR_SETTINGS
+    public Color _minColor = Color.black;
+    public Color _maxColor = Color.white;
+
+    public AnimationCurve _colorValueCurve =new AnimationCurve(new Keyframe[] {new Keyframe(0,0),new Keyframe(1,1) });
+    public float _ColorUpLerpTime = 0.25f , _ColorDownLerpTime=0.15f;
+    #endregion
+
+
+
     Transform[] bars;
     Material[] barMaterials;
     float[] _OldScale_Y;
+    float[] oldColorValues;
     float frequencyScaleFactor, highestLogFreq;
     // Start is called before the first frame update
     void Start()
@@ -76,7 +87,7 @@ public class _SimpleSpectrum : MonoBehaviour
         bars = new Transform[barAmount];
         barMaterials = new Material[barAmount];
         _OldScale_Y = new float[barAmount];
-
+        oldColorValues = new float[barAmount];
 
 
 
@@ -171,9 +182,32 @@ public class _SimpleSpectrum : MonoBehaviour
 
                 _OldScale_Y[i] = newScale_Y;
 
+
+
+                /////////////////////////
+
+                float newColorVal = _colorValueCurve.Evaluate(_value);
+                float oldColorVal = oldColorValues[i];
+
+                if(newColorVal>oldColorVal)
+                {
+                    newColorVal = Mathf.Lerp(oldColorVal,newColorVal,_ColorUpLerpTime);
+                }
+                else
+                {
+                    newColorVal = Mathf.Lerp(oldColorVal, newColorVal,_ColorDownLerpTime);
+                }
+
+                Color newColor =
+                    new Color(
+                    Mathf.Clamp(newColorVal, _minColor.r, _maxColor.r),
+                    Mathf.Clamp(newColorVal, _minColor.g, _maxColor.g),
+                    Mathf.Clamp(newColorVal, _minColor.b, _maxColor.b)
+                        );
+                barMaterials[i].SetColor("_Color", newColor);
+                oldColorValues[i] = newColorVal;
+
             }
-
-
 
         }
         else
