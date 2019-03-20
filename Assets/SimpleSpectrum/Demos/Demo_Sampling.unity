@@ -821,5 +821,10 @@ PrefabInstance:
       propertyPath: _colorValueCurve.m_Curve.Array.data[0].outSlope
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: _BarCurveAngle
+      value: 169
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8ff34d1cbaeb41969cbf9c6003c73a4, type: 3}

@@ -29,9 +29,16 @@ public class _SimpleSpectrumEditor:Editor
     {
         base.OnInspectorGUI();
 
-        
-      // FoldOutOpen_Spectrum= EditorGUILayout.Foldout(FoldOutOpen_Spectrum, "Spectrum Setting");
 
+        // FoldOutOpen_Spectrum= EditorGUILayout.Foldout(FoldOutOpen_Spectrum, "Spectrum Setting");
+        _SimpleSpectrum _script = (_SimpleSpectrum)this.target;
+        if (GUILayout.Button("Rebuild Spectrum"))
+        {
+            _script.RebuildSpectrum();
+        }
+
+
+    
 
     }
 
