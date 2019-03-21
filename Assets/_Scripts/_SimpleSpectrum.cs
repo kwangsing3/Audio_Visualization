@@ -7,8 +7,8 @@ public class _SimpleSpectrum : MonoBehaviour
 {
     public bool isEnabled = true;
     public enum SourceType
-    { 
-         AudioSource,AudioListener,MicroophoneInput,SteroMix,Custom
+    {
+        AudioSource, AudioListener, MicroophoneInput, SteroMix, Custom
     }
 
     #region SAMPLING PROPERTIES
@@ -17,20 +17,22 @@ public class _SimpleSpectrum : MonoBehaviour
 
     [Tooltip("Sample採樣的數量，一定要是2的次方")]
     public int _numOfSamples = 256;
-    public int _sampleChannel=0;
+    public int _sampleChannel = 0;
+
     [Tooltip("FFTWindow的取樣模式")]
     public FFTWindow _FFTWindowType = FFTWindow.BlackmanHarris;
 
     public float _FrequencyLimitLow = 0;
-    public float _FrequencyLimitHigh =22050;
+    public float _FrequencyLimitHigh = 22050;
     public bool multiplyByFrequency = false;
-    public bool _UseLogarithmicFrequency =false;
+    public bool _UseLogarithmicFrequency = false;
     #endregion
 
 
     #region BAR_SETTING
-    [Range(0,360)]
-    public float _BarCurveAngle = 0.0f;
+
+
+    public bool Is_Circle = false;
     public float _BarRotationX = 0.0f;
 
 
@@ -69,7 +71,7 @@ public class _SimpleSpectrum : MonoBehaviour
     }
 
     // Update is called once per frame
-   
+    public float _ForwardLength=10;
    public float[] _spectrum;
 
     public void RebuildSpectrum()
@@ -101,51 +103,34 @@ public class _SimpleSpectrum : MonoBehaviour
         float _SpectrumLength =barAmount*(1+_barXSpacing); //加上間隔後的總長度
         float _midPoint =_SpectrumLength /2;  //中間的位置是多少
         Vector3 _curveCenter = Vector3.zero;
-        // 環繞計算
-        float cur_AngleRads = 0, cur_Radious = 0, half_AngleR = 0, half_AngleD = 0;
-        if (_BarCurveAngle > 0)
-        {
-            // 給予相關資訊
-            cur_AngleRads = 2 * Mathf.PI * (_BarCurveAngle / 360); //2 pi 角度  （弧度）
-            cur_Radious = _SpectrumLength / cur_AngleRads; // 圓周/弧度
-            half_AngleR = cur_AngleRads / 2;
-            half_AngleD = _BarCurveAngle / 2;
-            _curveCenter = new Vector3(0,0,1*-cur_Radious);
-
-            if(_BarCurveAngle>=360)
-            {
-                _curveCenter = Vector3.zero;
-            }
-        }
-
-
+       
 
         // About Clone
         for (int i=0;i<barAmount;i++)
         {
-            GameObject _Barclone= Instantiate(barPrefab,transform,false);
-            _Barclone.transform.localScale = new Vector3(_barScale_X,_barMinScale_Y,1);
-
-            // Bar 位置
-
-            if(_BarCurveAngle>0)
+            GameObject _Barclone = Instantiate(barPrefab);
+            if (Is_Circle)
             {
-                float index_position =(float)i/barAmount;
-                float _nowBarAngleR = (index_position * cur_AngleRads) - half_AngleR;
-                float _nowBarAngleD = (index_position * _BarCurveAngle) - half_AngleD;
-                _Barclone.transform.localPosition = new Vector3(Mathf.Sin(_nowBarAngleR) * cur_Radious, 0, Mathf.Cos(_nowBarAngleR) * cur_Radious) + _curveCenter;
-                _Barclone.transform.localRotation = Quaternion.Euler(_BarRotationX,_nowBarAngleD,0);
+                _Barclone.transform.localPosition += Vector3.back * _ForwardLength;
+                _Barclone.transform.parent = this.transform;
+                transform.eulerAngles += new Vector3(0, 360/barAmount, 0);
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(0,0,0);
+                _Barclone.transform.parent = this.transform;
+                _Barclone.transform.localPosition = new Vector3(i * (1 + _barXSpacing) - _midPoint, 0, 0);
             }
            
-            else
-            _Barclone.transform.localPosition = new Vector3(i*(1+_barXSpacing)-_midPoint,0,0);
+            _Barclone.transform.localScale = new Vector3(_barScale_X,_barMinScale_Y,1);
 
-
-
-
-
-            //
             bars[i] = _Barclone.transform;
+
+            if(_BarRotationX>0)
+            {
+                bars[i].eulerAngles =new Vector3(_BarRotationX, 0,0);
+            }
+
             Renderer _rend = _Barclone.transform.GetChild(0).GetComponent<Renderer>();
             if (_rend != null)
             {
@@ -170,6 +155,7 @@ public class _SimpleSpectrum : MonoBehaviour
 
     void Update()
     {
+
         if(isEnabled)
         { 
             if(_sourcetype!=SourceType.Custom)

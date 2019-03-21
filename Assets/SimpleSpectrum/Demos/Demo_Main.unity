@@ -112,6 +112,111 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &206405310
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1905183045701061066, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: m_Name
+      value: My Spectrum Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.04799986
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: Is_Circle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: _audiosource
+      value: 
+      objectReference: {fileID: 1073279694}
+    - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: _BarRotationX
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: barPrefab
+      value: 
+      objectReference: {fileID: 1111153027474118, guid: c0c1e17a8f1ed6c4bbffed84fc91a108,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a8ff34d1cbaeb41969cbf9c6003c73a4, type: 3}
 --- !u!1 &288644072
 GameObject:
   m_ObjectHideFlags: 0
@@ -4929,9 +5034,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cc3ccdd31fd1cdd41bcd284e738d0725, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 43fe0f0d299924e20bc6e709bc24ce87, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.252
   m_Pitch: 1
   Loop: 1
   Mute: 0
