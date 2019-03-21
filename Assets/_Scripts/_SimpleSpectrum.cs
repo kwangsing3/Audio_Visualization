@@ -65,17 +65,24 @@ public class _SimpleSpectrum : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if (_audiosource == null && _sourcetype == SourceType.AudioSource)
             Debug.LogError("沒有或是沒有找到AudioSource，請重新擺放一個");
         RebuildSpectrum();
+
+
     }
 
     // Update is called once per frame
     public float _ForwardLength=10;
+
    public float[] _spectrum;
 
     public void RebuildSpectrum()
     {
+        Quaternion _Cachetransform = this.transform.rotation;
+        transform.eulerAngles = Vector3.zero;
+
         isEnabled = false;
 
         // clear child first
@@ -113,7 +120,8 @@ public class _SimpleSpectrum : MonoBehaviour
             {
                 _Barclone.transform.localPosition += Vector3.back * _ForwardLength;
                 _Barclone.transform.parent = this.transform;
-                transform.eulerAngles += new Vector3(0, 360/barAmount, 0);
+                _Barclone.transform.LookAt(transform);
+                transform.eulerAngles += new Vector3(0,(360/barAmount), 0);
             }
             else
             {
@@ -128,7 +136,7 @@ public class _SimpleSpectrum : MonoBehaviour
 
             if(_BarRotationX>0)
             {
-                bars[i].eulerAngles =new Vector3(_BarRotationX, 0,0);
+                bars[i].eulerAngles +=new Vector3(_BarRotationX, 0,0);
             }
 
             Renderer _rend = _Barclone.transform.GetChild(0).GetComponent<Renderer>();
@@ -149,6 +157,7 @@ public class _SimpleSpectrum : MonoBehaviour
         highestLogFreq =Mathf.Log(barAmount+1,2);
 
         isEnabled = true;
+        this.transform.rotation = _Cachetransform;
     }
 
 
