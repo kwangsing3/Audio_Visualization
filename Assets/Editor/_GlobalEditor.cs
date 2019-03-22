@@ -31,14 +31,5 @@ public class ObjectBuilderEditor : Editor
 
 
 
-        _Theme newValue = (_Theme)EditorGUILayout.EnumPopup(_script._CurrentTheme);
-        if (_script._CurrentTheme != (_GlobalSetting._Theme)newValue)
-        {
-            _script._CurrentTheme= (_GlobalSetting._Theme)newValue;
-            _script.SwitchTheme();
-            // do stuff, call functions, etc.
-        }
-
-
     }
 }

@@ -25,12 +25,8 @@ public class _GlobalSetting : MonoBehaviour
 
     Camera _camera;
     //public FFTWindow _FFTWindowMode;
-    public enum _Theme
-    { 
-        Theme_1,Theme_2,Theme_3
-    }
-    [HideInInspector]
-    public _Theme _CurrentTheme;
+  
+  
     public  FFTWindow _FFTWindowMode;
     public Color _MainBackColor = Color.white;
 
@@ -65,26 +61,6 @@ public class _GlobalSetting : MonoBehaviour
 
     }
 
-    public void SwitchTheme()
-    {
-
-        switch(_CurrentTheme)
-        {
-            case _Theme.Theme_1:
-                print("Switch Theme to :"+_CurrentTheme);
-                break;
-            case _Theme.Theme_2:
-                print("Switch Theme to :"+ _CurrentTheme);
-                break;
-            case _Theme.Theme_3:
-                print("Switch Theme to :"+ _CurrentTheme);
-                break;
-            default:
-                print("_GlobalSetting設定錯啦（笑)");
-                break;
-
-        }
-    }
 
 
 

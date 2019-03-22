@@ -17,9 +17,12 @@ public class FileManager : MonoBehaviour
     private bool _volumeBool = false;
     private bool isPlaying;
     public Canvas _advCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
+        _advCanvas.enabled = false;
+       _audioSource = _audioSource.transform.Find("Audio Source").GetComponent<AudioSource>();
         _VolumeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck();});
         _VolumeSlider.value = 0.3f;
         _audioSource.volume = _VolumeSlider.value;
@@ -106,7 +109,7 @@ public class FileManager : MonoBehaviour
     }
 
 
-    public void ButtonOnClick()    //瀏覽檔案...
+    public void _OpenFile_OnClick()    //瀏覽檔案...
     {
         var extensions = new[] {
                 new ExtensionFilter("支援的檔案","wav" ),
@@ -161,10 +164,6 @@ public class FileManager : MonoBehaviour
     }
 
 
-
-
-
-
     public static string Reverse(string s)
     {
         char[] charArray = s.ToCharArray();
@@ -172,4 +171,26 @@ public class FileManager : MonoBehaviour
         return new string(charArray);
     }
 
+
+
+    public void _SwitchTheme()
+    {
+
+        switch (GameObject.Find("Dropdown").GetComponent<Dropdown>().value)
+        {
+            case 0:
+                print("Switch Theme to :1" );
+                break;
+            case 1:
+                print("Switch Theme to :2" );
+                break;
+            case 2:
+                print("Switch Theme to :3" );
+                break;
+            default:
+                print("_設定錯啦（笑)");
+                break;
+
+        }
+    }
 }

@@ -86,19 +86,11 @@ public class PickColor : MonoBehaviour {
         {
             case 0:
                 _Color1 = _currentColor;
-                for (int i = 0; i < _FrontCusbes.transform.childCount; i++)
-                {
-                    _FrontCusbes.transform.GetChild(i).GetComponent<LocalScale>()._currentColor = _Color1;
-                  
-                }
+              
                 break;
             case 1:
                 _Color2 = _currentColor;
-                for (int i = 0; i < _FrontCusbes.transform.childCount; i++)
-                {
-                    _BackCusbes.transform.GetChild(i).GetComponent<LocalScale>()._currentColor = _Color2;
-                   
-                }
+              
                 break;
             case 2:
                 _Color3 = _currentColor;

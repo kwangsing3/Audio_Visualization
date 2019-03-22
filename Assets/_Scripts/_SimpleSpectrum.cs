@@ -59,7 +59,7 @@ public class _SimpleSpectrum : MonoBehaviour
 
     Transform[] bars;
     Material[] barMaterials;
-    float[] _OldScale_Y;
+   public static float[] _OldScale_Y;
     float[] oldColorValues;
     float frequencyScaleFactor, highestLogFreq;
     // Start is called before the first frame update
