@@ -18,15 +18,24 @@ public class FileManager : MonoBehaviour
     private bool isPlaying;
     public Canvas _advCanvas;
 
+    public GameObject[] ThemeObject = new GameObject[3];
+    public enum _Theme
+    {
+        Theme_1,Theme_2,Theme_3
+    }
+    private _Theme _CurrentTheme = _Theme.Theme_1;
+
     // Start is called before the first frame update
     void Start()
     {
         _advCanvas.enabled = false;
-       _audioSource = _audioSource.transform.Find("Audio Source").GetComponent<AudioSource>();
-        _VolumeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck();});
-        _VolumeSlider.value = 0.3f;
+       _audioSource = GameObject.Find("Audio Source").GetComponent<AudioSource>();
+       // _VolumeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck();});
+        _VolumeSlider.value = 1f;
         _audioSource.volume = _VolumeSlider.value;
         isPlaying = true;
+
+        _SwitchTheme();
     }
 
     // Update is called once per frame
@@ -133,7 +142,7 @@ public class FileManager : MonoBehaviour
         return _path;
     }
 
-    public void _PlayButton()
+    public void _Btn_Play_OnClick()
     {
         if (isPlaying)
             _audioSource.Pause();
@@ -148,17 +157,17 @@ public class FileManager : MonoBehaviour
 
     }
 
-    public void _VolumeButton()
+    public void _Btn_Volume_OnClick()
     {
         _volumeBool = !_volumeBool;
 
         if (_volumeBool)
-            _VolumeSlider.GetComponent<Animator>().Play("Ani_Slider_FlyIn");
+            _VolumeSlider.GetComponent<Animator>().Play("Ani_SliderUp");
         else
-            _VolumeSlider.GetComponent<Animator>().Play("Ani_Slider_FlyOut");
+            _VolumeSlider.GetComponent<Animator>().Play("Ani_SliderDown");
     }
 
-    public void ValueChangeCheck()
+    public void _ValueChangeCheck()
     {
         _audioSource.volume = _VolumeSlider.value;
     }
@@ -176,15 +185,24 @@ public class FileManager : MonoBehaviour
     public void _SwitchTheme()
     {
 
+        Destroy(GameObject.Find("ThemePrefab"));
+        GameObject _themePrefab = null;
+
         switch (GameObject.Find("Dropdown").GetComponent<Dropdown>().value)
         {
             case 0:
+                _CurrentTheme = _Theme.Theme_1;
+                _themePrefab = Instantiate(ThemeObject[0]);
+               
                 print("Switch Theme to :1" );
                 break;
             case 1:
+                _CurrentTheme = _Theme.Theme_2;
+                _themePrefab = Instantiate(ThemeObject[1]);
                 print("Switch Theme to :2" );
                 break;
             case 2:
+                _CurrentTheme = _Theme.Theme_3;
                 print("Switch Theme to :3" );
                 break;
             default:
@@ -192,5 +210,8 @@ public class FileManager : MonoBehaviour
                 break;
 
         }
+
+
+        _themePrefab.name = "ThemePrefab";
     }
 }

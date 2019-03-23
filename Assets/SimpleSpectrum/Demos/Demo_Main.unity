@@ -127,7 +127,7 @@ PrefabInstance:
     - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1905183045701061068, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
         type: 3}
@@ -207,13 +207,13 @@ PrefabInstance:
     - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
         type: 3}
       propertyPath: _BarRotationX
-      value: 90
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
         type: 3}
       propertyPath: barPrefab
       value: 
-      objectReference: {fileID: 1530035476307668, guid: aa8f7560468c8044596fc716a101a26a,
+      objectReference: {fileID: 1530035476307668, guid: 53573cb5d427d8549bef1a8c4d5198dc,
         type: 3}
     - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
         type: 3}
@@ -228,6 +228,36 @@ PrefabInstance:
     - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
         type: 3}
       propertyPath: _convertScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: _minColor.r
+      value: 0.9150943
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: _minColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: _minColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: _maxColor.r
+      value: 0.0048570633
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: _maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: _maxColor.b
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5165,7 +5195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1153101711
 MonoBehaviour:
   m_ObjectHideFlags: 0

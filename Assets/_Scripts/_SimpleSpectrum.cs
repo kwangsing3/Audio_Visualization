@@ -33,11 +33,14 @@ public class _SimpleSpectrum : MonoBehaviour
 
 
     public bool Is_Circle = false;
+    [Range(0f,360f)]
     public float _BarRotationX = 0.0f;
 
 
     public int barAmount =32;
-    public float _LerpSpeed = 0.15f;
+    [Range(0f,1f)]
+    public float _UpSpeed=0.15f,_DownSpeed = 0.15f, _LerpSpeed = 0.15f;
+
     public float _barScale_X= 1;
     public float _barScale_Y = 50f;
     public float _barMinScale_Y=0.1f;
@@ -63,9 +66,13 @@ public class _SimpleSpectrum : MonoBehaviour
     float[] oldColorValues;
     float frequencyScaleFactor, highestLogFreq;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        _audiosource = GameObject.Find("Audio Source").GetComponent<AudioSource>();
+    }
     void Start()
     {
-
+        
         if (_audiosource == null && _sourcetype == SourceType.AudioSource)
             Debug.LogError("沒有或是沒有找到AudioSource，請重新擺放一個");
         RebuildSpectrum();
@@ -73,10 +80,11 @@ public class _SimpleSpectrum : MonoBehaviour
 
     }
 
+    bool MaterialColorCouldBeUsed = true;
     // Update is called once per frame
     public float _ForwardLength=10;
 
-   public float[] _spectrum;
+    public float[] _spectrum;
 
     public void RebuildSpectrum()
     {
@@ -102,7 +110,7 @@ public class _SimpleSpectrum : MonoBehaviour
         barMaterials = new Material[barAmount];
         _OldScale_Y = new float[barAmount];
         oldColorValues = new float[barAmount];
-
+        
 
 
 
@@ -143,10 +151,12 @@ public class _SimpleSpectrum : MonoBehaviour
             if (_rend != null)
             {
                 barMaterials[i] = _rend.material;
+                MaterialColorCouldBeUsed = true;
             }
             else
             {
                 Debug.LogWarning("找不到Bar的Material");
+                MaterialColorCouldBeUsed = false;
             }
 
 
@@ -161,8 +171,9 @@ public class _SimpleSpectrum : MonoBehaviour
     }
 
 
+    public bool _ChangeColor = true;
 
-    void Update()
+    void Update()    
     {
 
         if(isEnabled)
@@ -190,61 +201,54 @@ public class _SimpleSpectrum : MonoBehaviour
                 // if else
                 trueSampleIndex =Mathf.Lerp(_FrequencyLimitLow,_FrequencyLimitHigh,((float)i)/barAmount) * frequencyScaleFactor;
 
-
-
                 int sampleIndexFloor = Mathf.FloorToInt(trueSampleIndex);
                 sampleIndexFloor = Mathf.Clamp(sampleIndexFloor,0,_spectrum.Length-1);
                 _value = Mathf.SmoothStep(_spectrum[sampleIndexFloor],_spectrum[sampleIndexFloor+1],trueSampleIndex-sampleIndexFloor);
-
-
 
                 //if else
                 if (multiplyByFrequency)
                 {
                     _value = _value * (trueSampleIndex + 1);
                 }
-
-
-
                 _value =Mathf.Sqrt(_value);  //平方根
 
                 // trueSampleIndex = Mathf.Lerp();
                 float oldScaleY =_OldScale_Y[i];
                 float newScale_Y;
                 if (_value*_barScale_Y>oldScaleY)
-                 newScale_Y = Mathf.Lerp(oldScaleY, Mathf.Max(_value*_barScale_Y,_barMinScale_Y),_LerpSpeed);
+                 newScale_Y = Mathf.Lerp(oldScaleY, Mathf.Max(_value*_barScale_Y,_barMinScale_Y),_UpSpeed);
                 else
-                 newScale_Y=  Mathf.Lerp(oldScaleY, Mathf.Max(_value * _barScale_Y,_barMinScale_Y), _LerpSpeed);
+                 newScale_Y=  Mathf.Lerp(oldScaleY, Mathf.Max(_value * _barScale_Y,_barMinScale_Y), _DownSpeed);
 
                 bar.localScale = new Vector3(_barScale_X,newScale_Y,1);
 
                 _OldScale_Y[i] = newScale_Y;
-
-
-
-                /////////////////////////
+                 
+                /////////////////////////    About Color
 
                 float newColorVal = _colorValueCurve.Evaluate(_value);
                 float oldColorVal = oldColorValues[i];
 
-                if(newColorVal>oldColorVal)
+                if (MaterialColorCouldBeUsed && _ChangeColor)
                 {
-                    newColorVal = Mathf.Lerp(oldColorVal,newColorVal,_ColorUpLerpTime);
-                }
-                else
-                {
-                    newColorVal = Mathf.Lerp(oldColorVal, newColorVal,_ColorDownLerpTime);
-                }
+                    if (newColorVal > oldColorVal)
+                    {
+                        newColorVal = Mathf.Lerp(oldColorVal, newColorVal, _ColorUpLerpTime);
+                    }
+                    else
+                    {
+                        newColorVal = Mathf.Lerp(oldColorVal, newColorVal, _ColorDownLerpTime);
+                    }
 
-                Color newColor =
-                    new Color(
-                    Mathf.Clamp(newColorVal, _minColor.r, _maxColor.r),
-                    Mathf.Clamp(newColorVal, _minColor.g, _maxColor.g),
-                    Mathf.Clamp(newColorVal, _minColor.b, _maxColor.b)
-                        );
-                barMaterials[i].SetColor("_Color", newColor);
-                oldColorValues[i] = newColorVal;
-
+                    Color newColor =
+                        new Color(
+                        Mathf.Clamp(newColorVal, _minColor.r, _maxColor.r),
+                        Mathf.Clamp(newColorVal, _minColor.g, _maxColor.g),
+                        Mathf.Clamp(newColorVal, _minColor.b, _maxColor.b)
+                            );
+                    barMaterials[i].SetColor("_Color", newColor);
+                    oldColorValues[i] = newColorVal;
+                }
             }
 
         }
@@ -252,7 +256,7 @@ public class _SimpleSpectrum : MonoBehaviour
         { 
             foreach(Transform bar in bars)
             {
-                bar.localScale = Vector3.Lerp(bar.localScale,new Vector3(1, _barMinScale_Y, 1),_LerpSpeed); 
+                bar.localScale = Vector3.Lerp(bar.localScale,new Vector3(1, _barMinScale_Y, 1),_DownSpeed); 
             }
         }
     }
