@@ -121,7 +121,7 @@ PrefabInstance:
     - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
         type: 3}
       propertyPath: _BeatColor.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
         type: 3}
@@ -2757,12 +2757,12 @@ PrefabInstance:
     - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
         type: 3}
       propertyPath: _BeatColor.Array.data[1].r
-      value: 1
+      value: 0.11779833
       objectReference: {fileID: 0}
     - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
         type: 3}
       propertyPath: _BeatColor.Array.data[1].g
-      value: 0.8173368
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
         type: 3}
@@ -2772,17 +2772,17 @@ PrefabInstance:
     - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
         type: 3}
       propertyPath: _BeatColor.Array.data[2].r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
-        type: 3}
-      propertyPath: _BeatColor.Array.data[2].g
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
         type: 3}
+      propertyPath: _BeatColor.Array.data[2].g
+      value: 0.94579744
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
       propertyPath: _BeatColor.Array.data[2].b
-      value: 0.76234245
+      value: 0.015686274
       objectReference: {fileID: 0}
     - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
         type: 3}
@@ -2818,6 +2818,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _ColorDownLerpTime
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905183045701061067, guid: a8ff34d1cbaeb41969cbf9c6003c73a4,
+        type: 3}
+      propertyPath: barAmount
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8ff34d1cbaeb41969cbf9c6003c73a4, type: 3}

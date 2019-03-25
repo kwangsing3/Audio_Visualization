@@ -247,4 +247,30 @@ public class FileManager : MonoBehaviour
 
         _themePrefab.name = "ThemePrefab";
     }
+
+
+    public void _OnChangeColorMode()
+    {
+        switch (GameObject.Find("DropD_ＣolorMode").GetComponent<Dropdown>().value)
+        {
+            case 0:
+                _SimpleSpectrum._currentColorMode = _SimpleSpectrum._ColorMode.Each;
+               
+
+                print("Switch ColorMode to:Each");
+                break;
+            case 1:
+                _SimpleSpectrum._currentColorMode = _SimpleSpectrum._ColorMode.Clamp;
+
+                print("Switch ColorMode to:Clamp");
+                break;
+          
+            default:
+                print("_設定錯啦（笑)");
+                break;
+
+        }
+    }
+
+
 }

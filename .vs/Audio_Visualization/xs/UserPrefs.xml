@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{CEB3F511-CA4D-062B-5A5E-B1947A60B097}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/SphereAmpliate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/_GlobalSetting.cs">
     <Files>
-      <File FileName="Assets/_Scripts/_SimpleSpectrum.cs" Line="275" Column="30" />
+      <File FileName="Assets/_Scripts/_SimpleSpectrum.cs" Line="270" Column="86" />
       <File FileName="Assets/_Scripts/SphereAmpliate.cs" Line="9" Column="16" />
-      <File FileName="Assets/_Scripts/_GlobalSetting.cs" Line="58" Column="11" />
-      <File FileName="Assets/_Scripts/FileManager.cs" Line="216" Column="43" />
+      <File FileName="Assets/_Scripts/_GlobalSetting.cs" Line="103" Column="42" />
+      <File FileName="Assets/_Scripts/FileManager.cs" Line="189" Column="45" />
       <File FileName="Assets/Editor/_GlobalEditor.cs" Line="32" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

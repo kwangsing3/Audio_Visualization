@@ -51,22 +51,35 @@ public class _SimpleSpectrum : MonoBehaviour
     #endregion
 
     #region COLOR_SETTINGS
-    public Color _minColor = Color.white;
-    public Color _TargetColor = Color.yellow;
+   
 
     public AnimationCurve _colorValueCurve =new AnimationCurve(new Keyframe[] {new Keyframe(0,0),new Keyframe(1,1) });
-    [Range(0, 20)]
-    public float _ColorUpLerpTime = 5f , _ColorDownLerpTime=5f;
+   
+
+
+    public bool _ChangeColor = true;
+    public Color[] _BeatColor;
+
+
+
     #endregion
+
+    public enum _ColorMode
+    {
+        Each, Clamp
+    }
+    public static _ColorMode _currentColorMode = _ColorMode.Each;
 
 
 
     Transform[] bars;
     Material[] barMaterials;
-   public static float[] _OldScale_Y;
+    public static float[] _OldScale_Y;
     float[] oldColorValues;
     float frequencyScaleFactor, highestLogFreq;
     // Start is called before the first frame update
+
+
     private void Awake()
     {
         _audiosource = GameObject.Find("Audio Source").GetComponent<AudioSource>();
@@ -172,15 +185,7 @@ public class _SimpleSpectrum : MonoBehaviour
     }
 
 
-    public bool _ChangeColor = true;
-    public Color[] _BeatColor;
-
-    public enum _ColorMode
-    { 
-        Each,Clamp
-    }
-    public _ColorMode _currentColorMode = _ColorMode.Each;
-
+ 
 
 
     void Update()    
@@ -249,22 +254,20 @@ public class _SimpleSpectrum : MonoBehaviour
                             {
                                 if (newColorVal > oldColorVal)
                                 {
-                                    newColorVal = Mathf.Lerp(oldColorVal, newColorVal, _ColorUpLerpTime * Time.deltaTime);
+                                    newColorVal = Mathf.Lerp(oldColorVal, newColorVal, _GlobalSetting._ColorUpLerpTime * Time.deltaTime);
                                 }
                                 else
                                 {
-                                    newColorVal = Mathf.Lerp(oldColorVal, newColorVal, _ColorDownLerpTime * Time.deltaTime);
+                                    newColorVal = Mathf.Lerp(oldColorVal, newColorVal, _GlobalSetting._ColorDownLerpTime * Time.deltaTime);
                                 }
 
-                                if (_BeatColor.Length > 0)
-                                    _TargetColor = _BeatColor[Random.Range(0, 3)];
-                           
+
 
                                 Color newColor =
                                     new Color(
-                                    Mathf.Clamp(newColorVal, _minColor.r, _TargetColor.r),
-                                    Mathf.Clamp(newColorVal, _minColor.g, _TargetColor.g),
-                                    Mathf.Clamp(newColorVal, _minColor.b, _TargetColor.b)
+                                    Mathf.Clamp(newColorVal, _GlobalSetting._MinColor.r, _GlobalSetting._TargetColor.r),
+                                    Mathf.Clamp(newColorVal, _GlobalSetting._MinColor.g, _GlobalSetting._TargetColor.g),
+                                    Mathf.Clamp(newColorVal, _GlobalSetting._MinColor.b, _GlobalSetting._TargetColor.b)
                                         );
                                 barMaterials[i].SetColor("_Color", newColor);
                                 oldColorValues[i] = newColorVal;
@@ -274,15 +277,15 @@ public class _SimpleSpectrum : MonoBehaviour
                             if (newColorVal > oldColorVal)
                             {
                                 if (_BeatColor.Length > 0)
-                                    _TargetColor = _BeatColor[Random.Range(0, 3)];
+                                    _GlobalSetting._TargetColor = _BeatColor[Random.Range(0, 3)];
 
 
-                                barMaterials[i].color = Color.Lerp(barMaterials[i].color, _TargetColor, _ColorUpLerpTime * Time.deltaTime);
+                                barMaterials[i].color = Color.Lerp(barMaterials[i].color, _GlobalSetting._TargetColor, _GlobalSetting._ColorUpLerpTime * Time.deltaTime);
                             }
                             else
-                                _TargetColor = Color.white;
+                                _GlobalSetting._TargetColor = Color.white;
 
-                            barMaterials[i].color = Color.Lerp(barMaterials[i].color, _TargetColor, _ColorDownLerpTime * Time.deltaTime);
+                            barMaterials[i].color = Color.Lerp(barMaterials[i].color, _GlobalSetting._TargetColor, _GlobalSetting._ColorDownLerpTime * Time.deltaTime);
                             break;
                     }
 
@@ -300,9 +303,9 @@ public class _SimpleSpectrum : MonoBehaviour
                 bar.localScale = Vector3.Lerp(bar.localScale,new Vector3(1, _barMinScale_Y, 1),_DownSpeed); 
             }
         }
+
     }
 
-  
 
 
 
