@@ -17,6 +17,7 @@ public class FileManager : MonoBehaviour
     private bool _volumeBool = false;
     private bool isPlaying;
     public Canvas _advCanvas;
+    public int _DebugTheme = 0;
 
     public GameObject[] ThemeObject = new GameObject[3];
     public enum _Theme
@@ -35,7 +36,7 @@ public class FileManager : MonoBehaviour
         _audioSource.volume = _VolumeSlider.value;
         isPlaying = true;
 
-        _SwitchTheme();
+        _SwitchTheme(_DebugTheme);
     }
 
     // Update is called once per frame
@@ -204,6 +205,38 @@ public class FileManager : MonoBehaviour
             case 2:
                 _CurrentTheme = _Theme.Theme_3;
                 print("Switch Theme to :3" );
+                break;
+            default:
+                print("_設定錯啦（笑)");
+                break;
+
+        }
+
+
+        _themePrefab.name = "ThemePrefab";
+    }
+    public void _SwitchTheme(int index)
+    {
+
+        Destroy(GameObject.Find("ThemePrefab"));
+        GameObject _themePrefab = null;
+
+        switch (index)
+        {
+            case 0:
+                _CurrentTheme = _Theme.Theme_1;
+                _themePrefab = Instantiate(ThemeObject[0]);
+
+                print("Switch Theme to :1");
+                break;
+            case 1:
+                _CurrentTheme = _Theme.Theme_2;
+                _themePrefab = Instantiate(ThemeObject[1]);
+                print("Switch Theme to :2");
+                break;
+            case 2:
+                _CurrentTheme = _Theme.Theme_3;
+                print("Switch Theme to :3");
                 break;
             default:
                 print("_設定錯啦（笑)");

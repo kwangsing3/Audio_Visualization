@@ -1306,6 +1306,7 @@ MonoBehaviour:
   _playButton: {fileID: 1864610717}
   _VolumeSlider: {fileID: 1816168881}
   _advCanvas: {fileID: 2008213763}
+  _DebugTheme: 0
   ThemeObject:
   - {fileID: 2234137239139952052, guid: 39e6c59257fa12e46b324546943b3bc2, type: 3}
   - {fileID: 639883056004279969, guid: ab2bd2e81f2c9904c8c29f321a5ba7ff, type: 3}
@@ -1340,8 +1341,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForwardScale: 18
-  Cubes512: {fileID: 1697931159162208598, guid: 98f1838d5389a43f08806de3d52ba0f6,
-    type: 3}
   _AddThemeColor: {r: 1, g: 0, b: 0.9094448, a: 1}
   _AddThemeColor2: {r: 1, g: 0.7028302, b: 0.9683172, a: 1}
   EmissionStrength: 9
@@ -1405,7 +1404,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0.1958037, b: 0.21698111, a: 0}
+  m_BackGroundColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}

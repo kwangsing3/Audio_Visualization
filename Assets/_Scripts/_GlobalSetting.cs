@@ -10,7 +10,7 @@ public class _GlobalSetting : MonoBehaviour
 
 
     public float ForwardScale = 70;
-    public GameObject Cubes512;
+   // public GameObject Cubes512;
 
     public Color _AddThemeColor=Color.blue;
     public Color _AddThemeColor2 = Color.blue;
@@ -54,8 +54,8 @@ public class _GlobalSetting : MonoBehaviour
             {
                 Destroy(GameObject.Find("512_Cubes"));
             }
-            GameObject _new= Instantiate(Cubes512);
-            _new.transform.name= "512_Cubes";
+        //    GameObject _new= Instantiate(Cubes512);
+        //    _new.transform.name= "512_Cubes";
            // if (Cubes512.GetComponent<Sc_InstantiateCube>() != null)    Cubes512.GetComponent<Sc_InstantiateCube>().enabled = true;
         
 
