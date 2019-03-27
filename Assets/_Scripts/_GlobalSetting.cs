@@ -22,16 +22,20 @@ public class _GlobalSetting : MonoBehaviour
     public GameObject _ColoP;
     [Range(0, 20)]
     public static float _ColorUpLerpTime = 5f, _ColorDownLerpTime = 5f;
-    public static Color _MinColor = Color.grey;
-    public static Color _TargetColor = Color.yellow;
-    public Color _targetColor = Color.white;
-    public Color _minColor = Color.yellow;
+  
     Camera _camera;
     //public FFTWindow _FFTWindowMode;
     public Button[] _ColorButtons;
-  
+    [HideInInspector]
+    public static Color[] _ThemeColor;
     public  FFTWindow _FFTWindowMode;
 
+
+    /*    _ThemeColor[0]:  MinColor
+     *    _ThemeColor[1]:  MaxColor
+     *    _ThemeColor[2]:  BeatColor1
+     *    _ThemeColor[3]:  BeatColor2
+     */
 
 
     private void Awake()
@@ -42,6 +46,12 @@ public class _GlobalSetting : MonoBehaviour
 
     void Start()
     {
+        _ThemeColor = new Color[_ColorButtons.Length];
+       for(int i=0;i<_ThemeColor.Length;i++)
+        {
+            _ThemeColor[i] = _ColorButtons[i].GetComponent<Image>().material.color;
+        }
+
         RecreateCubes();
     }
 
@@ -69,25 +79,35 @@ public class _GlobalSetting : MonoBehaviour
     {
         if (GUI.Button(new Rect(10, 10, 160, 50), "Rebuild Spectrum"))
         {
-            GameObject.Find("ThemePrefab").GetComponent<_SimpleSpectrum>().RebuildSpectrum(); // error
+            if(GameObject.Find("ThemePrefab").GetComponent<_SimpleSpectrum>()!=null)
+                 GameObject.Find("ThemePrefab").GetComponent<_SimpleSpectrum>().RebuildSpectrum(); // error
+            else
+            { 
+                for(int i=0;i < GameObject.Find("ThemePrefab").transform.childCount; i++)
+                { 
+                if(GameObject.Find("ThemePrefab").transform.GetChild(i).GetComponent<_SimpleSpectrum>()!=null)
+                    {
+                        GameObject.Find("ThemePrefab").transform.GetChild(i).GetComponent<_SimpleSpectrum>().RebuildSpectrum();
+                    }
+                }
+            }
         }
 
 
-        _ColorUpLerpTime = GUI.HorizontalSlider(new Rect(10, 70, 160, 10), _ColorUpLerpTime, 0.0f, 20.0f);
 
-        _ColorDownLerpTime = GUI.HorizontalSlider(new Rect(10, 90, 160, 10), _ColorDownLerpTime, 0.0f, 20.0f);
+
+        GUI.Label(new Rect(10,70,120,50), "ColorUpSpeed :");
+        _ColorUpLerpTime = GUI.HorizontalSlider(new Rect(10, 90, 160, 10), _ColorUpLerpTime, 0.0f, 20.0f);
+        GUI.Label(new Rect(10,110, 120, 50), "ColorDownSpeed :");
+        _ColorDownLerpTime = GUI.HorizontalSlider(new Rect(10, 130, 160, 10), _ColorDownLerpTime, 0.0f, 20.0f);
 
 
     }
 
-   public void _OnColorPickerChanged()
-    {
-        _TargetColor = _ColoP.GetComponent<ColorPicker>().CurrentColor;
-        _targetColor = _TargetColor;
-    }
+ 
 
     bool _picker_isopen = false;
-    public   int _colorindex = 0;
+    public int _colorindex = 0;
     GameObject _cacheColoP = null;
     public void _ColorChangedOnClink()
     {
@@ -111,7 +131,13 @@ public class _GlobalSetting : MonoBehaviour
     {
         if( _cacheColoP!=null)
         _ColorButtons[_colorindex].gameObject.GetComponent<Image>().material.color = _cacheColoP.GetComponent<ColorPicker>().CurrentColor ;
-            
+        _ThemeColor[_colorindex] = _cacheColoP.GetComponent<ColorPicker>().CurrentColor;
+
     }
+
+
+
+
+   
 
 }

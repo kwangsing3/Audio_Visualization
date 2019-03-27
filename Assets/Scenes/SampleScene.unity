@@ -879,6 +879,7 @@ GameObject:
   - component: {fileID: 335304262}
   - component: {fileID: 335304261}
   - component: {fileID: 335304260}
+  - component: {fileID: 335304263}
   m_Layer: 5
   m_Name: Btn_Setting
   m_TagString: Untagged
@@ -996,6 +997,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335304258}
   m_CullTransparentMesh: 0
+--- !u!95 &335304263
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335304258}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b346393bfa34f45c6b0777aa31f32d99, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &337753178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,7 +1682,7 @@ MonoBehaviour:
   _playButton: {fileID: 1864610717}
   _VolumeSlider: {fileID: 1816168881}
   _advCanvas: {fileID: 2008213763}
-  _DebugTheme: 0
+  _DebugTheme: 1
   ThemeObject:
   - {fileID: 2234137239139952052, guid: 39e6c59257fa12e46b324546943b3bc2, type: 3}
   - {fileID: 639883056004279969, guid: ab2bd2e81f2c9904c8c29f321a5ba7ff, type: 3}
@@ -1762,6 +1782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 534238652}
   - component: {fileID: 534238651}
+  - component: {fileID: 534238653}
   m_Layer: 0
   m_Name: _GlobalSetting
   m_TagString: Untagged
@@ -1790,8 +1811,6 @@ MonoBehaviour:
   _limit: 20
   _LerpSpeed: 0.4
   _ColoP: {fileID: 157272, guid: 916ee089a0d7b63419075f91e1c657ec, type: 3}
-  _targetColor: {r: 1, g: 1, b: 1, a: 1}
-  _minColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   _ColorButtons:
   - {fileID: 1910896657}
   - {fileID: 987107038}
@@ -1813,6 +1832,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &534238653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534238650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81502593e1f98423a951e7128e85008a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,6 +3468,7 @@ GameObject:
   - component: {fileID: 1410709150}
   - component: {fileID: 1410709149}
   - component: {fileID: 1410709148}
+  - component: {fileID: 1410709151}
   m_Layer: 5
   m_Name: Btn_Volume
   m_TagString: Untagged
@@ -3554,6 +3586,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410709146}
   m_CullTransparentMesh: 0
+--- !u!95 &1410709151
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410709146}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b346393bfa34f45c6b0777aa31f32d99, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1430694968
 GameObject:
   m_ObjectHideFlags: 0
@@ -3996,6 +4047,7 @@ GameObject:
   - component: {fileID: 1864610719}
   - component: {fileID: 1864610718}
   - component: {fileID: 1864610717}
+  - component: {fileID: 1864610720}
   m_Layer: 5
   m_Name: Btn_Start
   m_TagString: Untagged
@@ -4113,6 +4165,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864610715}
   m_CullTransparentMesh: 0
+--- !u!95 &1864610720
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864610715}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b346393bfa34f45c6b0777aa31f32d99, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1910896655
 GameObject:
   m_ObjectHideFlags: 0

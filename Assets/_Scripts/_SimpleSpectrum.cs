@@ -265,9 +265,9 @@ public class _SimpleSpectrum : MonoBehaviour
 
                                 Color newColor =
                                     new Color(
-                                    Mathf.Clamp(newColorVal, _GlobalSetting._MinColor.r, _GlobalSetting._TargetColor.r),
-                                    Mathf.Clamp(newColorVal, _GlobalSetting._MinColor.g, _GlobalSetting._TargetColor.g),
-                                    Mathf.Clamp(newColorVal, _GlobalSetting._MinColor.b, _GlobalSetting._TargetColor.b)
+                                    Mathf.Clamp(newColorVal, _GlobalSetting._ThemeColor[0].r, _GlobalSetting._ThemeColor[1].r),
+                                    Mathf.Clamp(newColorVal, _GlobalSetting._ThemeColor[0].g, _GlobalSetting._ThemeColor[1].g),
+                                    Mathf.Clamp(newColorVal, _GlobalSetting._ThemeColor[0].b, _GlobalSetting._ThemeColor[1].b)
                                         );
                                 barMaterials[i].SetColor("_Color", newColor);
                                 oldColorValues[i] = newColorVal;
@@ -277,15 +277,15 @@ public class _SimpleSpectrum : MonoBehaviour
                             if (newColorVal > oldColorVal)
                             {
                                 if (_BeatColor.Length > 0)
-                                    _GlobalSetting._TargetColor = _BeatColor[Random.Range(0, 3)];
+                                    _GlobalSetting._ThemeColor[1] = _BeatColor[Random.Range(0, 3)];
 
 
-                                barMaterials[i].color = Color.Lerp(barMaterials[i].color, _GlobalSetting._TargetColor, _GlobalSetting._ColorUpLerpTime * Time.deltaTime);
+                                barMaterials[i].color = Color.Lerp(barMaterials[i].color, _GlobalSetting._ThemeColor[1], _GlobalSetting._ColorUpLerpTime * Time.deltaTime);
                             }
                             else
-                                _GlobalSetting._TargetColor = Color.white;
+                                _GlobalSetting._ThemeColor[1] = Color.white;
 
-                            barMaterials[i].color = Color.Lerp(barMaterials[i].color, _GlobalSetting._TargetColor, _GlobalSetting._ColorDownLerpTime * Time.deltaTime);
+                            barMaterials[i].color = Color.Lerp(barMaterials[i].color, _GlobalSetting._ThemeColor[1], _GlobalSetting._ColorDownLerpTime * Time.deltaTime);
                             break;
                     }
 
