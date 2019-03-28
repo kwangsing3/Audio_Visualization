@@ -25,13 +25,14 @@ public class FileManager : MonoBehaviour
         Theme_1,Theme_2,Theme_3
     }
     private _Theme _CurrentTheme = _Theme.Theme_1;
-
+    Camera _camera;
     // Start is called before the first frame update
     void Start()
     {
         _advCanvas.enabled = false;
        _audioSource = GameObject.Find("Audio Source").GetComponent<AudioSource>();
-       // _VolumeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck();});
+        _camera = GameObject.Find("MainCamera").GetComponent<Camera>();
+        // _VolumeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck();});
         _VolumeSlider.value = 1f;
         _audioSource.volume = _VolumeSlider.value;
         isPlaying = true;
@@ -155,7 +156,7 @@ public class FileManager : MonoBehaviour
     {
         _advCanvas.enabled = !_advCanvas.enabled;
 
-
+        _GlobalSetting._ShowGUI = !_GlobalSetting._ShowGUI;
     }
 
     public void _Btn_Volume_OnClick()
@@ -194,16 +195,19 @@ public class FileManager : MonoBehaviour
             case 0:
                 _CurrentTheme = _Theme.Theme_1;
                 _themePrefab = Instantiate(ThemeObject[0]);
-               
+                _camera.orthographic = true;
                 print("Switch Theme to :1" );
                 break;
             case 1:
                 _CurrentTheme = _Theme.Theme_2;
                 _themePrefab = Instantiate(ThemeObject[1]);
+                _camera.orthographic = true;
                 print("Switch Theme to :2" );
                 break;
             case 2:
                 _CurrentTheme = _Theme.Theme_3;
+                _themePrefab = Instantiate(ThemeObject[2]);
+                _camera.orthographic = false;
                 print("Switch Theme to :3" );
                 break;
             default:
@@ -226,6 +230,7 @@ public class FileManager : MonoBehaviour
             case 0:
                 _CurrentTheme = _Theme.Theme_1;
                 _themePrefab = Instantiate(ThemeObject[0]);
+                _camera.orthographic = true;
 
                 print("Switch Theme to :1");
                 break;
@@ -233,10 +238,14 @@ public class FileManager : MonoBehaviour
                 _CurrentTheme = _Theme.Theme_2;
                 _themePrefab = Instantiate(ThemeObject[1]);
                 print("Switch Theme to :2");
+                _camera.orthographic = true;
                 break;
             case 2:
                 _CurrentTheme = _Theme.Theme_3;
+                _themePrefab = Instantiate(ThemeObject[2]);
                 print("Switch Theme to :3");
+                _camera.orthographic=false;
+                
                 break;
             default:
                 print("_設定錯啦（笑)");

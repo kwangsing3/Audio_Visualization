@@ -12,6 +12,8 @@ public class _GlobalSetting : MonoBehaviour
     public float ForwardScale = 70;
     // public GameObject Cubes512;
 
+   
+    public static bool _ShowGUI=false;
 
     public float EmissionStrength = 15;
     public float _BaseLightScale;
@@ -23,7 +25,7 @@ public class _GlobalSetting : MonoBehaviour
     [Range(0, 20)]
     public static float _ColorUpLerpTime = 5f, _ColorDownLerpTime = 5f;
   
-    Camera _camera;
+
     //public FFTWindow _FFTWindowMode;
     public Button[] _ColorButtons;
     [HideInInspector]
@@ -40,7 +42,7 @@ public class _GlobalSetting : MonoBehaviour
 
     private void Awake()
     {
-        _camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+
     }
 
 
@@ -77,29 +79,33 @@ public class _GlobalSetting : MonoBehaviour
 
     private void OnGUI()
     {
-        if (GUI.Button(new Rect(10, 10, 160, 50), "Rebuild Spectrum"))
+        if(_ShowGUI)
         {
-            if(GameObject.Find("ThemePrefab").GetComponent<_SimpleSpectrum>()!=null)
-                 GameObject.Find("ThemePrefab").GetComponent<_SimpleSpectrum>().RebuildSpectrum(); // error
-            else
-            { 
-                for(int i=0;i < GameObject.Find("ThemePrefab").transform.childCount; i++)
-                { 
-                if(GameObject.Find("ThemePrefab").transform.GetChild(i).GetComponent<_SimpleSpectrum>()!=null)
+            if (GUI.Button(new Rect(10, 10, 160, 50), "Rebuild Spectrum"))
+            {
+                if (GameObject.Find("ThemePrefab").GetComponent<_SimpleSpectrum>() != null)
+                    GameObject.Find("ThemePrefab").GetComponent<_SimpleSpectrum>().RebuildSpectrum(); // error
+                else
+                {
+                    for (int i = 0; i < GameObject.Find("ThemePrefab").transform.childCount; i++)
                     {
-                        GameObject.Find("ThemePrefab").transform.GetChild(i).GetComponent<_SimpleSpectrum>().RebuildSpectrum();
+                        if (GameObject.Find("ThemePrefab").transform.GetChild(i).GetComponent<_SimpleSpectrum>() != null)
+                        {
+                            GameObject.Find("ThemePrefab").transform.GetChild(i).GetComponent<_SimpleSpectrum>().RebuildSpectrum();
+                        }
                     }
                 }
             }
+
+
+
+
+            GUI.Label(new Rect(10, 70, 120, 50), "ColorUpSpeed :");
+            _ColorUpLerpTime = GUI.HorizontalSlider(new Rect(10, 90, 160, 10), _ColorUpLerpTime, 0.0f, 20.0f);
+            GUI.Label(new Rect(10, 110, 120, 50), "ColorDownSpeed :");
+            _ColorDownLerpTime = GUI.HorizontalSlider(new Rect(10, 130, 160, 10), _ColorDownLerpTime, 0.0f, 20.0f);
+
         }
-
-
-
-
-        GUI.Label(new Rect(10,70,120,50), "ColorUpSpeed :");
-        _ColorUpLerpTime = GUI.HorizontalSlider(new Rect(10, 90, 160, 10), _ColorUpLerpTime, 0.0f, 20.0f);
-        GUI.Label(new Rect(10,110, 120, 50), "ColorDownSpeed :");
-        _ColorDownLerpTime = GUI.HorizontalSlider(new Rect(10, 130, 160, 10), _ColorDownLerpTime, 0.0f, 20.0f);
 
 
     }
