@@ -98,12 +98,15 @@ public class _GlobalSetting : MonoBehaviour
             }
 
 
+            GUI.BeginGroup(new Rect(10,60,120,140));
 
+            GUI.Box(new Rect(10,70,200,200),"Color Setting");
+            GUI.Label(new Rect(10, 80, 120, 50), "ColorUpSpeed :");
 
-            GUI.Label(new Rect(10, 70, 120, 50), "ColorUpSpeed :");
-            _ColorUpLerpTime = GUI.HorizontalSlider(new Rect(10, 90, 160, 10), _ColorUpLerpTime, 0.0f, 20.0f);
+            _ColorUpLerpTime = GUI.HorizontalSlider(new Rect(10, 100, 160, 10), _ColorUpLerpTime, 0.0f, 20.0f);
             GUI.Label(new Rect(10, 110, 120, 50), "ColorDownSpeed :");
-            _ColorDownLerpTime = GUI.HorizontalSlider(new Rect(10, 130, 160, 10), _ColorDownLerpTime, 0.0f, 20.0f);
+            _ColorDownLerpTime = GUI.HorizontalSlider(new Rect(10, 140, 160, 10), _ColorDownLerpTime, 0.0f, 20.0f);
+            GUI.EndGroup();
 
         }
 
