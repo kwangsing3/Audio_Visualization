@@ -37,7 +37,7 @@ public class _SimpleSpectrum : MonoBehaviour
     public GameObject barPrefab;
     public int barAmount =32;
     [Range(0f, 20f)]
-    public float _UpSpeed = 5f, _DownSpeed = 5f;
+    
 
     public float _barScale_X= 1;
     public float _barXSpacing = 0; //Bar之間的間隔
@@ -58,12 +58,15 @@ public class _SimpleSpectrum : MonoBehaviour
 
 
     public bool _ChangeColor = true;
-   
+
 
 
 
     #endregion
 
+    public bool _Rotate = false;
+    [Range(0,1)]
+    public float _RotateSpeed=0.15f;
     public enum _ColorMode
     {
         Each, Clamp
@@ -78,7 +81,7 @@ public class _SimpleSpectrum : MonoBehaviour
     float[] oldColorValues;
     float frequencyScaleFactor, highestLogFreq;
     // Start is called before the first frame update
-
+    float _cacheY = 0;
 
     private void Awake()
     {
@@ -89,8 +92,13 @@ public class _SimpleSpectrum : MonoBehaviour
         
         if (_audiosource == null && _sourcetype == SourceType.AudioSource)
             Debug.LogError("沒有或是沒有找到AudioSource，請重新擺放一個");
-        RebuildSpectrum();
+       
+      
+        _cacheY = transform.position.y;
+        transform.position = new Vector3(0,0,0);
+        ////////  Special position setting
 
+        RebuildSpectrum();
 
     }
 
@@ -142,6 +150,7 @@ public class _SimpleSpectrum : MonoBehaviour
             if (Is_Circle)
             {
                 _Barclone.transform.localPosition += Vector3.back * _ForwardLength;
+                _Barclone.transform.Translate(this.transform.position.x, _cacheY, this.transform.position.z);
                 _Barclone.transform.parent = this.transform;
                 _Barclone.transform.LookAt(transform);
                 transform.eulerAngles += new Vector3(0,(360/barAmount), 0);
@@ -149,12 +158,13 @@ public class _SimpleSpectrum : MonoBehaviour
             else
             {
                 transform.eulerAngles = new Vector3(0,0,0);
+                _Barclone.transform.Translate(this.transform.position.x, _cacheY, this.transform.position.z);
                 _Barclone.transform.parent = this.transform;
                 _Barclone.transform.localPosition = new Vector3(i * (1 + _barXSpacing) - _midPoint, 0, 0);
             }
            
             _Barclone.transform.localScale = new Vector3(_barScale_X,_barMinScale_Y,1);
-
+           
             bars[i] = _Barclone.transform;
 
             if(_BarRotationX>0)
@@ -233,9 +243,9 @@ public class _SimpleSpectrum : MonoBehaviour
                 float oldScaleY =_OldScale_Y[i];
                 float newScale_Y;
                 if (_value*_barScale_Y>oldScaleY)
-                 newScale_Y = Mathf.Lerp(oldScaleY, Mathf.Max(_value*_barScale_Y,_barMinScale_Y), _UpSpeed*Time.deltaTime);
+                 newScale_Y = Mathf.Lerp(oldScaleY, Mathf.Max(_value*_barScale_Y,_barMinScale_Y), _GlobalSetting._UpSpeed*Time.deltaTime);
                 else
-                 newScale_Y=  Mathf.Lerp(oldScaleY, Mathf.Max(_value * _barScale_Y,_barMinScale_Y), _DownSpeed*Time.deltaTime);
+                 newScale_Y=  Mathf.Lerp(oldScaleY, Mathf.Max(_value * _barScale_Y,_barMinScale_Y), _GlobalSetting._DownSpeed * Time.deltaTime);
 
                 bar.localScale = new Vector3(_barScale_X,newScale_Y,1);
 
@@ -247,7 +257,6 @@ public class _SimpleSpectrum : MonoBehaviour
                 float oldColorVal = oldColorValues[i];
                 if (MaterialColorCouldBeUsed && _ChangeColor)
                 {
-
                     switch(_currentColorMode)
 
                     {
@@ -262,9 +271,6 @@ public class _SimpleSpectrum : MonoBehaviour
                                 {
                                     newColorVal = Mathf.Lerp(oldColorVal, newColorVal, _GlobalSetting._ColorDownLerpTime * Time.deltaTime);
                                 }
-
-
-
                                 Color newColor =
                                     new Color(
                                     Mathf.Clamp(newColorVal, _GlobalSetting._ThemeColor[0].r, _GlobalSetting._ThemeColor[1].r),
@@ -274,19 +280,12 @@ public class _SimpleSpectrum : MonoBehaviour
 
                                 // barMaterials[i].SetColor("_Color", newColor); 
                                 barMaterials[i].color = newColor;
-
-
-
-
                                 oldColorValues[i] = newColorVal;
                             }
                             break;
                         case _ColorMode.Each:
                             if (newColorVal > oldColorVal)
                             {
-
-
-
                                 barMaterials[i].color = Color.Lerp(barMaterials[i].color, _GlobalSetting._ThemeColor[Random.Range(1, 4)], _GlobalSetting._ColorUpLerpTime * Time.deltaTime);
                             }
                             else
@@ -294,23 +293,21 @@ public class _SimpleSpectrum : MonoBehaviour
 
                             barMaterials[i].color = Color.Lerp(barMaterials[i].color, _GlobalSetting._ThemeColor[Random.Range(1, 4)], _GlobalSetting._ColorDownLerpTime * Time.deltaTime);
                             break;
-                    }
-
-
-                  
+                    } 
                 }
-
             }
-
         }
         else
         { 
             foreach(Transform bar in bars)
             {
-                bar.localScale = Vector3.Lerp(bar.localScale,new Vector3(1, _barMinScale_Y, 1),_DownSpeed); 
+                bar.localScale = Vector3.Lerp(bar.localScale,new Vector3(1, _barMinScale_Y, 1), _GlobalSetting._DownSpeed); 
             }
         }
-
+        if (_Rotate)
+        {
+            this.transform.eulerAngles += new Vector3(0,_RotateSpeed,0);
+        }
     }
 
 
