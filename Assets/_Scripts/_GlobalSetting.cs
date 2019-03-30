@@ -24,14 +24,15 @@ public class _GlobalSetting : MonoBehaviour
     public GameObject _ColoP;
     [Range(0, 20)]
     public static float _ColorUpLerpTime = 5f, _ColorDownLerpTime = 5f;
-  
+    [Range(0, 20)]
+    public static float _UpSpeed = 5f, _DownSpeed = 5f;
 
     //public FFTWindow _FFTWindowMode;
     public Button[] _ColorButtons;
     [HideInInspector]
     public static Color[] _ThemeColor;
     public  FFTWindow _FFTWindowMode;
-
+    GUIStyle _GUIsty = new GUIStyle();
 
     /*    _ThemeColor[0]:  MinColor
      *    _ThemeColor[1]:  MaxColor
@@ -53,7 +54,9 @@ public class _GlobalSetting : MonoBehaviour
         {
             _ThemeColor[i] = _ColorButtons[i].GetComponent<Image>().material.color;
         }
-
+        
+        _GUIsty.fontSize = 10;
+        _GUIsty.normal.textColor = Color.white;
         RecreateCubes();
     }
 
@@ -75,13 +78,17 @@ public class _GlobalSetting : MonoBehaviour
         
 
     }
-   
 
+
+    float _SceenX = Screen.width;
+    float _SceenY = Screen.height;
+    
     private void OnGUI()
     {
-        if(_ShowGUI)
+        float _nextPosY = 0;
+        if (true) //if(_ShowGUI)
         {
-            if (GUI.Button(new Rect(10, 10, 160, 50), "Rebuild Spectrum"))
+            if (GUILayout.Button("Rebuild Spectrum"))
             {
                 if (GameObject.Find("ThemePrefab").GetComponent<_SimpleSpectrum>() != null)
                     GameObject.Find("ThemePrefab").GetComponent<_SimpleSpectrum>().RebuildSpectrum(); // error
@@ -97,19 +104,23 @@ public class _GlobalSetting : MonoBehaviour
                 }
             }
 
+            _nextPosY += (_SceenY / 2) * 2 / 10;
 
-            GUI.BeginGroup(new Rect(10,60,120,140));
 
-            GUI.Box(new Rect(10,70,200,200),"Color Setting");
-            GUI.Label(new Rect(10, 80, 120, 50), "ColorUpSpeed :");
+            GUILayout.BeginVertical(GUI.skin.box);
 
-            _ColorUpLerpTime = GUI.HorizontalSlider(new Rect(10, 100, 160, 10), _ColorUpLerpTime, 0.0f, 20.0f);
-            GUI.Label(new Rect(10, 110, 120, 50), "ColorDownSpeed :");
-            _ColorDownLerpTime = GUI.HorizontalSlider(new Rect(10, 140, 160, 10), _ColorDownLerpTime, 0.0f, 20.0f);
-            GUI.EndGroup();
-
+            GUILayout.Box("Color Setting");
+            //GUILayout.Box();
+            GUILayout.Label( "ColorUpSpeed :", _GUIsty);
+            _ColorUpLerpTime = GUILayout.HorizontalSlider( _ColorUpLerpTime, 0.0f, 20.0f);
+            GUILayout.Label( "ColorDownSpeed :", _GUIsty);
+            _ColorDownLerpTime = GUILayout.HorizontalSlider(_ColorDownLerpTime, 0.0f, 20.0f);
+            GUILayout.Label("BarUpSpeed :", _GUIsty);
+            _UpSpeed = GUILayout.HorizontalSlider(_UpSpeed, 0.0f, 20.0f);
+            GUILayout.Label("BarDownSpeed :", _GUIsty);
+            _DownSpeed = GUILayout.HorizontalSlider(_DownSpeed, 0.0f, 20.0f);
+            GUILayout.EndVertical();
         }
-
 
     }
 
