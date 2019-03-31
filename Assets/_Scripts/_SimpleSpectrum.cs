@@ -257,6 +257,10 @@ public class _SimpleSpectrum : MonoBehaviour
                 float oldColorVal = oldColorValues[i];
                 if (MaterialColorCouldBeUsed && _ChangeColor)
                 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 48c12b14f3bc360cdd4861c80fb6ca2829216047
                     switch(_currentColorMode)
 
                     {
@@ -266,11 +270,22 @@ public class _SimpleSpectrum : MonoBehaviour
                                 if (newColorVal > oldColorVal)
                                 {
                                     newColorVal = Mathf.Lerp(oldColorVal, newColorVal, _GlobalSetting._ColorUpLerpTime * Time.deltaTime);
+<<<<<<< HEAD
                                 }
                                 else
                                 {
                                     newColorVal = Mathf.Lerp(oldColorVal, newColorVal, _GlobalSetting._ColorDownLerpTime * Time.deltaTime);
                                 }
+=======
+                                }
+                                else
+                                {
+                                    newColorVal = Mathf.Lerp(oldColorVal, newColorVal, _GlobalSetting._ColorDownLerpTime * Time.deltaTime);
+                                }
+
+
+
+>>>>>>> 48c12b14f3bc360cdd4861c80fb6ca2829216047
                                 Color newColor =
                                     new Color(
                                     Mathf.Clamp(newColorVal, _GlobalSetting._ThemeColor[0].r, _GlobalSetting._ThemeColor[1].r),
@@ -280,6 +295,7 @@ public class _SimpleSpectrum : MonoBehaviour
 
                                 // barMaterials[i].SetColor("_Color", newColor); 
                                 barMaterials[i].color = newColor;
+<<<<<<< HEAD
                                 oldColorValues[i] = newColorVal;
                             }
                             break;
@@ -295,6 +311,34 @@ public class _SimpleSpectrum : MonoBehaviour
                             break;
                     } 
                 }
+=======
+
+
+
+
+                                oldColorValues[i] = newColorVal;
+                            }
+                            break;
+                        case _ColorMode.Each:
+                            if (newColorVal > oldColorVal)
+                            {
+
+
+
+                                barMaterials[i].color = Color.Lerp(barMaterials[i].color, _GlobalSetting._ThemeColor[Random.Range(1, 4)], _GlobalSetting._ColorUpLerpTime * Time.deltaTime);
+                            }
+                            else
+                                _GlobalSetting._ThemeColor[1] = Color.white;
+
+                            barMaterials[i].color = Color.Lerp(barMaterials[i].color, _GlobalSetting._ThemeColor[Random.Range(1, 4)], _GlobalSetting._ColorDownLerpTime * Time.deltaTime);
+                            break;
+                    }
+
+
+                  
+                }
+
+>>>>>>> 48c12b14f3bc360cdd4861c80fb6ca2829216047
             }
         }
         else
@@ -310,6 +354,15 @@ public class _SimpleSpectrum : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
+=======
+        if (_Rotate)
+        {
+            this.transform.eulerAngles += new Vector3(0,_RotateSpeed,0);
+        }
+    }
+
+>>>>>>> 48c12b14f3bc360cdd4861c80fb6ca2829216047
 
 
 

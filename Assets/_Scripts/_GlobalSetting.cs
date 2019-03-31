@@ -82,9 +82,13 @@ public class _GlobalSetting : MonoBehaviour
 
     float _SceenX = Screen.width;
     float _SceenY = Screen.height;
+<<<<<<< HEAD
     private Vector2 scrollViewVector = Vector2.zero;
     int n, i, wichcountry;
     private string[] countrys = { "Any country", "Afghanistan", "Albania", "Algeria" };//add the rest
+=======
+    
+>>>>>>> 48c12b14f3bc360cdd4861c80fb6ca2829216047
     private void OnGUI()
     {
         float _nextPosY = 0;
@@ -113,6 +117,7 @@ public class _GlobalSetting : MonoBehaviour
 
             GUILayout.Box("Color Setting");
             //GUILayout.Box();
+<<<<<<< HEAD
             GUILayout.Label( "ColorUpLerp :", _GUIsty);
             _ColorUpLerpTime = GUILayout.HorizontalSlider( _ColorUpLerpTime, 0.0f, 20.0f);
             GUILayout.Label("ColorDownLerp :", _GUIsty);
@@ -150,6 +155,16 @@ public class _GlobalSetting : MonoBehaviour
 
 
 
+=======
+            GUILayout.Label( "ColorUpSpeed :", _GUIsty);
+            _ColorUpLerpTime = GUILayout.HorizontalSlider( _ColorUpLerpTime, 0.0f, 20.0f);
+            GUILayout.Label( "ColorDownSpeed :", _GUIsty);
+            _ColorDownLerpTime = GUILayout.HorizontalSlider(_ColorDownLerpTime, 0.0f, 20.0f);
+            GUILayout.Label("BarUpSpeed :", _GUIsty);
+            _UpSpeed = GUILayout.HorizontalSlider(_UpSpeed, 0.0f, 20.0f);
+            GUILayout.Label("BarDownSpeed :", _GUIsty);
+            _DownSpeed = GUILayout.HorizontalSlider(_DownSpeed, 0.0f, 20.0f);
+>>>>>>> 48c12b14f3bc360cdd4861c80fb6ca2829216047
             GUILayout.EndVertical();
         }
 
