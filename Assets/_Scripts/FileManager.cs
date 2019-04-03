@@ -16,28 +16,20 @@ public class FileManager : MonoBehaviour
     public Slider _VolumeSlider;
     private bool _volumeBool = false;
     private bool isPlaying;
-    public Canvas _advCanvas;
-    public int _DebugTheme = 0;
-
-    public GameObject[] ThemeObject = new GameObject[3];
-    public enum _Theme
-    {
-        Theme_1,Theme_2,Theme_3
-    }
-    private _Theme _CurrentTheme = _Theme.Theme_1;
-    Camera _camera;
+ 
+  
     // Start is called before the first frame update
     void Start()
     {
-        _advCanvas.enabled = false;
+        
        _audioSource = GameObject.Find("Audio Source").GetComponent<AudioSource>();
-        _camera = GameObject.Find("MainCamera").GetComponent<Camera>();
+       
         // _VolumeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck();});
         _VolumeSlider.value = 1f;
         _audioSource.volume = _VolumeSlider.value;
         isPlaying = true;
-
-        _SwitchTheme(_DebugTheme);
+        
+        
     }
 
     // Update is called once per frame
@@ -152,12 +144,12 @@ public class FileManager : MonoBehaviour
             _audioSource.UnPause();
         isPlaying = !isPlaying;
     }
+
     public void _SettingButton()
     {
-        _advCanvas.enabled = !_advCanvas.enabled;
-
         _GlobalSetting._ShowGUI = !_GlobalSetting._ShowGUI;
     }
+
 
     public void _Btn_Volume_OnClick()
     {
@@ -183,103 +175,6 @@ public class FileManager : MonoBehaviour
     }
 
 
-
-    public void _SwitchTheme()
-    {
-
-        Destroy(GameObject.Find("ThemePrefab"));
-        GameObject _themePrefab = null;
-
-        switch (GameObject.Find("Dropdown").GetComponent<Dropdown>().value)
-        {
-            case 0:
-                _CurrentTheme = _Theme.Theme_1;
-                _themePrefab = Instantiate(ThemeObject[0]);
-                _camera.orthographic = true;
-                print("Switch Theme to :1" );
-                break;
-            case 1:
-                _CurrentTheme = _Theme.Theme_2;
-                _themePrefab = Instantiate(ThemeObject[1]);
-                _camera.orthographic = true;
-                print("Switch Theme to :2" );
-                break;
-            case 2:
-                _CurrentTheme = _Theme.Theme_3;
-                _themePrefab = Instantiate(ThemeObject[2]);
-                _camera.orthographic = false;
-                print("Switch Theme to :3" );
-                break;
-            default:
-                print("_設定錯啦（笑)");
-                break;
-
-        }
-
-
-        _themePrefab.name = "ThemePrefab";
-    }
-    public void _SwitchTheme(int index)
-    {
-
-        Destroy(GameObject.Find("ThemePrefab"));
-        GameObject _themePrefab = null;
-
-        switch (index)
-        {
-            case 0:
-                _CurrentTheme = _Theme.Theme_1;
-                _themePrefab = Instantiate(ThemeObject[0]);
-                _camera.orthographic = true;
-
-                print("Switch Theme to :1");
-                break;
-            case 1:
-                _CurrentTheme = _Theme.Theme_2;
-                _themePrefab = Instantiate(ThemeObject[1]);
-                print("Switch Theme to :2");
-                _camera.orthographic = true;
-                break;
-            case 2:
-                _CurrentTheme = _Theme.Theme_3;
-                _themePrefab = Instantiate(ThemeObject[2]);
-                print("Switch Theme to :3");
-                _camera.orthographic=false;
-                
-                break;
-            default:
-                print("_設定錯啦（笑)");
-                break;
-
-        }
-
-
-        _themePrefab.name = "ThemePrefab";
-    }
-
-
-    public void _OnChangeColorMode()
-    {
-        switch (GameObject.Find("DropD_ＣolorMode").GetComponent<Dropdown>().value)
-        {
-            case 0:
-                _SimpleSpectrum._currentColorMode = _SimpleSpectrum._ColorMode.Each;
-               
-
-                print("Switch ColorMode to:Each");
-                break;
-            case 1:
-                _SimpleSpectrum._currentColorMode = _SimpleSpectrum._ColorMode.Clamp;
-
-                print("Switch ColorMode to:Clamp");
-                break;
-          
-            default:
-                print("_設定錯啦（笑)");
-                break;
-
-        }
-    }
 
 
 }
