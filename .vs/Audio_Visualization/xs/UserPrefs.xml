@@ -3,10 +3,23 @@
     <Files>
       <File FileName="Assets/_Scripts/_SimpleSpectrum.cs" Line="105" Column="10" />
       <File FileName="Assets/_Scripts/SphereAmpliate.cs" Line="9" Column="16" />
-      <File FileName="Assets/_Scripts/_GlobalSetting.cs" Line="96" Column="22" />
-      <File FileName="Assets/_Scripts/FileManager.cs" Line="239" Column="60" />
+      <File FileName="Assets/_Scripts/_GlobalSetting.cs" Line="38" Column="34" />
+      <File FileName="Assets/_Scripts/FileManager.cs" Line="150" Column="32" />
       <File FileName="Assets/_Scripts/InpuManager.cs" Line="40" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Audio_Visualization" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="_Scripts" expanded="True">
+                <Node name="_GlobalSetting.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="../../../Assets/_Scripts/AudioPeer.cs" line="211" offsetX="302" offsetY="3150" expression="count" liveUpdate="False" />
@@ -14,7 +27,7 @@
     <Watch file="../../../Assets/_Scripts/AudioPeer.cs" line="171" offsetX="511" offsetY="2550" expression="i" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f5cd2a7e-f280-42e3-9fec-27edc37a7c01" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
