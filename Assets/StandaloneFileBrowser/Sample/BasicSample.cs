@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using SFB;
+using OpenFilePanel_CP;
 
 public class BasicSample : MonoBehaviour {
     private string _path;
@@ -94,6 +95,12 @@ public class BasicSample : MonoBehaviour {
                 new ExtensionFilter("Text", "txt"),
             };
             _path = StandaloneFileBrowser.SaveFilePanel("Save File", "", "MySaveFile", extensionList);
+        }
+        GUILayout.Space(5);
+        if (GUILayout.Button("Custom OpenFile"))
+        {
+            StandardFileBrowser _stf = new StandardFileBrowser();
+            print(_stf.ShowFilePanel());
         }
 
         GUILayout.EndVertical();
